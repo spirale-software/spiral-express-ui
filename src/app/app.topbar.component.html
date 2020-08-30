@@ -1,6 +1,7 @@
 <div class="topbar">
     <a routerLink="/" class="topbar-logo">
-        <img [src]="app.layout === 'default' ? 'assets/layout/images/logo-black.png' : 'assets/layout/images/logo-white.png'" style="border: 0 none">
+<!--        <img [src]="app.layout === 'default' ? 'assets/layout/images/logo-black.png' : 'assets/layout/images/logo-white.png'" style="border: 0 none">-->
+        <span style="font-size: 25px; color: white;">SPIRAL-EXPRESS</span>
     </a>
 
     <a href="#" id="menu-button" (click)="app.onMenuButtonClick($event)">
@@ -8,15 +9,15 @@
     </a>
 
     <a href="#" id="user-display" (click)="app.onTopbarMenuButtonClick($event)">
-        <span class="username">Emma Davis</span>
+        <span class="username">Gérard Yannick</span>
         <img src="assets/layout/images/avatar.png" style="border: 0px;">
         <i class="fa fa-angle-down"></i>
     </a>
 
-    <label for="topbar-search">
-        <i class="fa fa-search topbar-search-icon"></i>
-    </label>
-    <input type="text" class="topbar-search" placeholder="Type your search here" id="topbar-search" />
+<!--    <label for="topbar-search">-->
+<!--        <i class="fa fa-search topbar-search-icon"></i>-->
+<!--    </label>-->
+<!--    <input type="text" class="topbar-search" placeholder="Type your search here" id="topbar-search" />-->
 
     <ul id="topbar-menu" class="fadeInDown" [ngClass]="{'topbar-menu-visible': app.topbarMenuActive}">
         <li #profile [ngClass]="{'menuitem-active':app.activeTopbarItem === profile}">
