@@ -104,6 +104,7 @@ import {NodeService} from './demo/service/nodeservice';
 
 // Application services
 import {MenuService} from './app.menu.service';
+import {PagesModule} from "./pages/pages.module";
 
 @NgModule({
     imports: [
@@ -176,7 +177,8 @@ import {MenuService} from './app.menu.service';
         TooltipModule,
         TreeModule,
         TreeTableModule,
-        VirtualScrollerModule
+        VirtualScrollerModule,
+        PagesModule
     ],
     declarations: [
         AppComponent,
