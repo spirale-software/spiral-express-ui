@@ -1,2 +1,38 @@
+<!--
+-->
+<div>
+    <div style="margin-bottom: 9px">
+        <p-breadcrumb [model]="breadcrumbItems" [home]="{icon: 'fa fa-home'}"></p-breadcrumb>
+    </div>
 
-<h2>Client works !</h2>
+    <div class="card card-w-title">
+        <div class="ui-g">
+            <div class="ui-g-9"><h1>Liste des clients</h1></div>
+            <div class="ui-g-3"><p-button label="Créer un nouveau client" icon="pi pi-plus"></p-button></div>
+        </div>
+
+        <div>
+            <p-dataView #dv [value]="clients" [paginator]="true" [rows]="10" paginatorPosition="bottom">
+                <ng-template let-client pTemplate="listItem">
+                    <div class="ui-g-12">
+                        <div style="border-bottom: 1px solid #d9dad9; padding-top: 9px">
+                            <span style="display: block; font-size: 18px; font-weight: bold">{{ client.prenom }} {{ client.nom }}</span>
+                            <div>
+                                <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Tel: <strong>{{ client.telephone }}</strong></span>
+                                <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Email: <strong>{{ client.email }}</strong></span>
+                            </div>
+                            <div>
+                                <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Pays: <strong>{{ client.pays }}</strong></span>
+                                <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Adresse: <strong>{{ client.adresse }}</strong></span>
+                            </div>
+
+                        </div>
+                    </div>
+                </ng-template>
+
+            </p-dataView>
+        </div>
+
+    </div>
+
+</div>
