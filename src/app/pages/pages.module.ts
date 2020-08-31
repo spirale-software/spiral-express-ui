@@ -7,8 +7,9 @@ import {EnvoiComponent} from './envoi/envoi.component';
 import {LoginComponent} from './login/login.component';
 import {PartenaireComponent} from './partenaire/partenaire.component';
 import {PrimengLibModule} from "./shared/primeng-lib/primeng-lib.module";
-import {MenubarModule} from "primeng";
 import {ClientModule} from "./client/client.module";
+import {LivraisonColiComponent} from "./livraison-coli/livraison-coli.component";
+import {ReceptionColiComponent} from "./reception-coli/reception-coli.component";
 
 @NgModule({
     imports: [
@@ -21,7 +22,9 @@ import {ClientModule} from "./client/client.module";
         AccueilComponent,
         EnvoiComponent,
         LoginComponent,
-        PartenaireComponent
+        PartenaireComponent,
+        LivraisonColiComponent,
+        ReceptionColiComponent
     ]
 })
 export class PagesModule {}

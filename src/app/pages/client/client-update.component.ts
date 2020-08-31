@@ -1,5 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {MenuItem} from "primeng";
+import {ClientService} from "./client.service";
 
 @Component({
     selector: 'app-client-update',
@@ -9,7 +10,7 @@ export class ClientUpdateComponent implements OnInit {
 
     breadcrumbItems: MenuItem[];
 
-    constructor() {
+    constructor(private clientService: ClientService) {
 
         this.breadcrumbItems = [];
         this.breadcrumbItems.push({label: 'Clients'});
@@ -24,6 +25,6 @@ export class ClientUpdateComponent implements OnInit {
     }
 
     enregistrer(): void {
-        
+
     }
 }

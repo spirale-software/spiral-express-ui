@@ -17,8 +17,8 @@ export class AppMenuComponent implements OnInit {
             {label: 'Clients', icon: 'fa fa-address-book', routerLink: ['/clients']},
             {label: 'Gestion des envois', icon: 'fa fa-paper-plane', routerLink: ['/gestion-des-envois']},
             {label: 'Partenaires', icon: 'fa fa-users', routerLink: ['/partenaires']},
-            {label: 'Reception coli', icon: 'fa fa-archive', routerLink: ['/partenaires']},
-            {label: 'Livraison coli', icon: 'fa fa-handshake-o', routerLink: ['/partenaires']},
+            {label: 'Reception coli', icon: 'fa fa-archive', routerLink: ['/reception-coli']},
+            {label: 'Livraison coli', icon: 'fa fa-handshake-o', routerLink: ['/livraison-coli']},
 
 
             {label: '*******************'},

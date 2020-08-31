@@ -4,6 +4,8 @@ import {ClientComponent} from './client/client.component';
 import {EnvoiComponent} from './envoi/envoi.component';
 import {PartenaireComponent} from './partenaire/partenaire.component';
 import {CLIENT_ROUTES} from "./client/client.route";
+import {LIVRAISON_COLI_ROUTES} from "./livraison-coli/livraison-coli.route";
+import {RECEPTION_COLI_ROUTES} from "./reception-coli/reception-coli.route";
 
 export const PAGES_ROUTES: Routes = [
     {
@@ -11,6 +13,8 @@ export const PAGES_ROUTES: Routes = [
         component: AccueilComponent
     },
         ...CLIENT_ROUTES,
+        ...LIVRAISON_COLI_ROUTES,
+        ...RECEPTION_COLI_ROUTES,
     {
         path: 'gestion-des-envois',
         component: EnvoiComponent
