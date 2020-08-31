@@ -8,16 +8,17 @@ import {LoginComponent} from './login/login.component';
 import {PartenaireComponent} from './partenaire/partenaire.component';
 import {PrimengLibModule} from "./shared/primeng-lib/primeng-lib.module";
 import {MenubarModule} from "primeng";
+import {ClientModule} from "./client/client.module";
 
 @NgModule({
     imports: [
         RouterModule.forChild(PAGES_ROUTES),
-        PrimengLibModule
+        PrimengLibModule,
+        ClientModule
     ],
     exports: [RouterModule],
     declarations: [
         AccueilComponent,
-        ClientComponent,
         EnvoiComponent,
         LoginComponent,
         PartenaireComponent

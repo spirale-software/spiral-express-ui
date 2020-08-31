@@ -4,12 +4,14 @@ import {
     CardModule, DataViewModule, DropdownModule,
     InputTextareaModule,
     InputTextModule,
-    MenubarModule
+    MenubarModule, ToolbarModule
 } from "primeng";
 
 @NgModule({
-    imports: [MenubarModule, BreadcrumbModule, CardModule, DataViewModule, InputTextModule, InputTextareaModule, DropdownModule, ButtonModule],
-    exports: [MenubarModule, BreadcrumbModule, CardModule, DataViewModule, InputTextModule, InputTextareaModule, DropdownModule, ButtonModule]
+    imports: [MenubarModule, BreadcrumbModule, CardModule, DataViewModule, InputTextModule, InputTextareaModule,
+        DropdownModule, ButtonModule, ToolbarModule],
+    exports: [MenubarModule, BreadcrumbModule, CardModule, DataViewModule, InputTextModule, InputTextareaModule,
+        DropdownModule, ButtonModule, ToolbarModule]
 })
 export class PrimengLibModule {
 
