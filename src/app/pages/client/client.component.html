@@ -16,16 +16,25 @@
                 <ng-template let-client pTemplate="listItem">
                     <div class="ui-g-12">
                         <div style="border-bottom: 1px solid #d9dad9; padding-top: 9px">
-                            <span style="display: block; font-size: 18px; font-weight: bold">{{ client.prenom }} {{ client.nom }}</span>
-                            <div>
-                                <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Tel: <strong>{{ client.telephone }}</strong></span>
-                                <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Email: <strong>{{ client.email }}</strong></span>
-                            </div>
-                            <div>
-                                <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Pays: <strong>{{ client.pays }}</strong></span>
-                                <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Adresse: <strong>{{ client.adresse }}</strong></span>
+                            <div class="ui-g-9">
+                                <div>
+                                    <span style="display: block; font-size: 18px; font-weight: bold">{{ client.prenom }} {{ client.nom }}</span>
+                                    <div>
+                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Tel: <strong>{{ client.telephone }}</strong></span>
+                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Email: <strong>{{ client.email }}</strong></span>
+                                    </div>
+                                    <div>
+                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Pays: <strong>{{ client.pays }}</strong></span>
+                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Adresse: <strong>{{ client.adresse }}</strong></span>
+                                    </div>
+
+                                </div>
                             </div>
 
+                            <div class="ui-g-3">
+                                <button pButton label="Modifier" icon="fa fa-pencil" style="margin-right: 7px" class="ui-button ui-button-warning"></button>
+                                <button pButton label="Supprimer" icon="fa fa-trash" class="ui-button ui-button-danger"></button>
+                            </div>
                         </div>
                     </div>
                 </ng-template>
