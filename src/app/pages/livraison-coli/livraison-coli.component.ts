@@ -1,4 +1,5 @@
 import {Component, OnInit} from "@angular/core";
+import {MenuItem} from "primeng";
 
 @Component({
     selector: 'app-livraison-coli',
@@ -6,7 +7,12 @@ import {Component, OnInit} from "@angular/core";
 })
 export class LivraisonColiComponent implements OnInit {
 
-    constructor() {}
+    breadcrumbItems: MenuItem[];
+
+    constructor() {
+        this.breadcrumbItems = [];
+        this.breadcrumbItems.push({label: 'Livraison coli'});
+    }
 
     ngOnInit(): void {
     }

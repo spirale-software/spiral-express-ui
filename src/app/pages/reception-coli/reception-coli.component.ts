@@ -1,4 +1,5 @@
 import {Component, OnInit} from "@angular/core";
+import {MenuItem} from "primeng";
 
 @Component({
     selector: 'app-reception-coli',
@@ -6,8 +7,12 @@ import {Component, OnInit} from "@angular/core";
 })
 export class ReceptionColiComponent implements OnInit {
 
+    breadcrumbItems: MenuItem[];
+
     constructor() {}
 
     ngOnInit(): void {
+        this.breadcrumbItems = [];
+        this.breadcrumbItems.push({label: 'Réception coli'});
     }
 }
