@@ -1,7 +1,7 @@
-import {NgModule} from "@angular/core";
-import {EnvoiComponent} from "./envoi.component";
-import {PrimengLibModule} from "../shared/primeng-lib/primeng-lib.module";
-import {EnvoiUpdateComponent} from "./envoi-update.component";
+import {NgModule} from '@angular/core';
+import {EnvoiComponent} from './envoi.component';
+import {PrimengLibModule} from '../shared/primeng-lib/primeng-lib.module';
+import {EnvoiUpdateComponent} from './envoi-update.component';
 
 @NgModule({
     imports: [PrimengLibModule],
@@ -11,6 +11,4 @@ import {EnvoiUpdateComponent} from "./envoi-update.component";
         EnvoiUpdateComponent
     ]
 })
-export class EnvoiModule {
-
-}
+export class EnvoiModule {}
