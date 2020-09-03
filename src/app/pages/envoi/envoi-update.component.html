@@ -9,8 +9,77 @@
         </div>
 
         <div>
+            <div style="margin-bottom: 21px">
+                <span style="padding-right: 17px">Date: 19/09/2010</span>
+                <span>Etat: En Encodage</span>
+            </div>
 
+            <!--[Coli]-->
+            <div>
+                <span>Coli</span>
+                <hr size="1px" width="70%" align="left" color="#d9dad9">
+                <div style="margin-bottom: 11px">
+                    <div class="ui-fluid"><span>Description coli</span></div>
+                    <textarea pInputTextarea [rows]="3" [cols]="50"></textarea>
+                </div>
+
+                <div class="p-grid" style="margin-bottom: 11px">
+                    <div class="p-col-2">
+                        <div class="ui-fluid"><span>Longueur</span></div>
+                        <input pInputText>
+                    </div>
+                    <div class="p-col-2">
+                        <div class="ui-fluid"><span>Largeur</span></div>
+                        <input pInputText>
+                    </div>
+                    <div class="p-col-2">
+                        <div class="ui-fluid"><span>Hauteur</span></div>
+                        <input pInputText>
+                    </div>
+                </div>
+
+                <div class="p-grid" style="margin-bottom: 11px">
+                    <div class="p-col-2">
+                        <div class="ui-fluid">Volume</div>
+                        <span>10 m³</span>
+                    </div>
+                    <div class="p-col-2">
+                        <div class="ui-fluid">Montant de net</div>
+                        <span>50 EUR</span>
+                    </div>
+                </div>
+            </div>
+
+            <!--[Expéditeur]-->
+            <div style="margin-bottom: 25px">
+                <span>Coordonnées de l'expéditeur</span>
+                <hr size="1px" width="70%" align="left" color="#d9dad9">
+                <div>
+                    <div class="ui-fluid">Expéditeur</div>
+                    <input pInputText>
+                </div>
+            </div>
+
+            <!--[Destinataire]-->
+            <div>
+                <span>Coordonnées du destinataire</span>
+                <hr size="1px" width="70%" align="left" color="#d9dad9">
+                <div>
+                    <div class="ui-fluid">Destinataire</div>
+                    <input pInputText>
+                </div>
+            </div>
+
+
+            <div style="margin-top: 21px">
+                <div class="ui-fluid">Montant total à payer pour cet envoi</div>
+                <span>50 EUR</span>
+            </div>
         </div>
 
+        <div style="margin-top: 21px">
+            <button pButton label="Retour" class="ui-button ui-button-secondary" style="margin-right: 7px"></button>
+            <button pButton label="Valider cet envoi"></button>
+        </div>
     </div>
 </div>
