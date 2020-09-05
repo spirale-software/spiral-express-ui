@@ -15,5 +15,13 @@ export class EnvoiUpdateComponent {
         this.breadcrumbItems.push({label: 'encodage nouvel envoi'});
     }
 
+    back(): void {
+        window.history.back();
+    }
+
+    onValiderClicked(): void {
+
+    }
+
 }
 

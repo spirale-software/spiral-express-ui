@@ -9,13 +9,15 @@ import {ClientModule} from "./client/client.module";
 import {LivraisonColiComponent} from "./livraison-coli/livraison-coli.component";
 import {ReceptionColiComponent} from "./reception-coli/reception-coli.component";
 import {EnvoiModule} from "./envoi/envoi.module";
+import {SharedModule} from "./shared/shared.module";
 
 @NgModule({
     imports: [
         RouterModule.forChild(PAGES_ROUTES),
         PrimengLibModule,
         ClientModule,
-        EnvoiModule
+        EnvoiModule,
+        SharedModule
     ],
     exports: [RouterModule],
     declarations: [

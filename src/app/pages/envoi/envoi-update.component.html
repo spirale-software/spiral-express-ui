@@ -51,12 +51,13 @@
             </div>
 
             <!--[Expéditeur]-->
-            <div style="margin-bottom: 25px">
+            <div style="margin-bottom: 35px">
                 <span>Coordonnées de l'expéditeur</span>
                 <hr size="1px" width="70%" align="left" color="#d9dad9">
-                <div>
-                    <div class="ui-fluid">Expéditeur</div>
-                    <input pInputText>
+                <div style="margin-top: 15px"><span>Expéditeur</span></div>
+                <div class="p-inputgroup">
+                    <input type="text" pInputText>
+                    <button type="button" pButton pRipple icon="pi pi-search" styleClass="p-button-danger"></button>
                 </div>
             </div>
 
@@ -77,9 +78,6 @@
             </div>
         </div>
 
-        <div style="margin-top: 21px">
-            <button pButton label="Retour" class="ui-button ui-button-secondary" style="margin-right: 7px"></button>
-            <button pButton label="Valider cet envoi"></button>
-        </div>
+        <app-button-group (retourClicked)="back()" (validerClicked)="onValiderClicked()"></app-button-group>
     </div>
 </div>
