@@ -10,4 +10,9 @@ export class LoginComponent implements OnInit {
 
     ngOnInit(): void {
     }
+
+    connecter(): void {
+        localStorage.setItem('isAuthenticated', 'true');
+    }
+
 }

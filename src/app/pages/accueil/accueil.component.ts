@@ -15,4 +15,10 @@ export class AccueilComponent implements OnInit {
     onLoginClicked(): void {
         this.displayLoginDialog = true;
     }
+
+    connecter() {
+        this.displayLoginDialog = false;
+        setTimeout(() => localStorage.setItem('isAuthenticated', 'true'), 500);
+
+    }
 }

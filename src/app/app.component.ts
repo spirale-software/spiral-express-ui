@@ -1,5 +1,6 @@
 import {Component, Renderer2} from '@angular/core';
 import { MenuService } from './app.menu.service';
+import {Router} from "@angular/router";
 
 enum MenuMode {
     STATIC,
@@ -40,7 +41,16 @@ export class AppComponent {
 
     menuHoverActive: boolean;
 
-    constructor(public renderer: Renderer2, private menuService: MenuService) {}
+    constructor(public renderer: Renderer2, private menuService: MenuService, private router: Router) {localStorage.setItem('isAuthenticated', 'false');}
+
+    isAuthenticated(): boolean {
+        const value = localStorage.getItem('isAuthenticated');
+
+        if (value === 'true' && this.router.isActive('', true)) {
+            this.router.navigate(['tableau-de-bord']);
+        }
+        return value === 'true';
+    }
 
     onLayoutClick() {
         if (!this.menuClick && !this.menuButtonClick) {

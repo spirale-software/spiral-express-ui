@@ -26,7 +26,8 @@
 </style>
 
 
-<p-dialog header="Connexion" [(visible)]="displayLoginDialog" [style]="{width: '30vw'}" [baseZIndex]="10000" [modal]="true">
+<p-dialog header="Connexion" [(visible)]="displayLoginDialog" [style]="{width: '30vw'}" [baseZIndex]="10000"
+          [modal]="true">
     <div style="padding: 15px 15px;">
         <div style="margin-bottom: 11px">
 
@@ -45,7 +46,7 @@
         </div>
     </div>
     <p-footer>
-        <p-button icon="pi pi-check" (click)="displayLoginDialog=false" label="Se connecter" styleClass="p-button-text"></p-button>
+        <p-button icon="pi pi-check" (click)="connecter()" label="Se connecter" styleClass="p-button-text"></p-button>
         <p-button icon="pi pi-times" (click)="displayLoginDialog=false" label="Quitter" [class]="'ui-button ui-button-secondary'"></p-button>
     </p-footer>
 </p-dialog>

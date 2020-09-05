@@ -23,7 +23,7 @@ export class AppMenuComponent implements OnInit {
 
             {label: '*******************'},
             // Menu intégré au template.
-            {label: 'Dashboard', icon: 'fa fa-fw fa-home', routerLink: ['/']},
+            {label: 'Dashboard', icon: 'fa fa-fw fa-home', routerLink: ['/dashboard']},
             {
                 label: 'Menu Modes', icon: 'fa fa-fw fa-bars',
                 items: [
