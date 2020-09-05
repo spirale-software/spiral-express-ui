@@ -5,9 +5,14 @@ import {Component, OnInit} from "@angular/core";
     templateUrl: './accueil.component.html'
 })
 export class AccueilComponent implements OnInit {
+    displayLoginDialog = false;
 
     constructor() {}
 
     ngOnInit(): void {
+    }
+
+    onLoginClicked(): void {
+        this.displayLoginDialog = true;
     }
 }

@@ -1,7 +1,7 @@
 import {NgModule} from "@angular/core";
 import {
     BreadcrumbModule, ButtonModule,
-    CardModule, DataViewModule, DropdownModule,
+    CardModule, DataViewModule, DialogModule, DropdownModule,
     InputTextareaModule,
     InputTextModule,
     MenubarModule, ToolbarModule
@@ -9,9 +9,9 @@ import {
 
 @NgModule({
     imports: [MenubarModule, BreadcrumbModule, CardModule, DataViewModule, InputTextModule, InputTextareaModule,
-        DropdownModule, ButtonModule, ToolbarModule],
+        DropdownModule, ButtonModule, ToolbarModule, DialogModule],
     exports: [MenubarModule, BreadcrumbModule, CardModule, DataViewModule, InputTextModule, InputTextareaModule,
-        DropdownModule, ButtonModule, ToolbarModule]
+        DropdownModule, ButtonModule, ToolbarModule, DialogModule]
 })
 export class PrimengLibModule {
 

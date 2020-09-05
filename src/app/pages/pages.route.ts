@@ -6,6 +6,7 @@ import {RECEPTION_COLI_ROUTES} from './reception-coli/reception-coli.route';
 import {ENVOI_ROUTES} from './envoi/envoi.route';
 import {TableauDeBordComponent} from './tableau-de-bord/tableau-de-bord.component';
 import {PARTENAIRE_ROUTES} from './partenaire/partenaire.route';
+import {LoginComponent} from './login/login.component';
 
 export const PAGES_ROUTES: Routes = [
     {
@@ -15,6 +16,10 @@ export const PAGES_ROUTES: Routes = [
     {
         path: 'tableau-de-bord',
         component: TableauDeBordComponent
+    },
+    {
+        path: 'login',
+        component: LoginComponent
     },
      ...CLIENT_ROUTES,
     ...LIVRAISON_COLI_ROUTES,
