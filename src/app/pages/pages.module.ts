@@ -21,7 +21,7 @@ import {PartenaireModule} from './partenaire/partenaire.module';
         PartenaireModule,
         SharedModule
     ],
-    exports: [RouterModule],
+    exports: [RouterModule, AccueilComponent],
     declarations: [
         AccueilComponent,
         LoginComponent,

@@ -1,14 +1,50 @@
-<!--
--->
-<div>
 
-    <div style="margin-bottom: 9px">
-        <p-breadcrumb [home]="{icon: 'fa fa-home'}"></p-breadcrumb>
+<style>
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0px;
+        overflow: hidden;
+        background-color: #4285F4;
+    }
+
+    li {
+        float: left;
+    }
+
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    .connecter:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<div style="overflow: hidden">
+    <div>
+        <ul>
+            <li><a href="#home"><span style="font-size: 21px">Sipral-Express</span></a></li>
+            <li style="float:right"><a href="#about" class="connecter"><i class="fa fa-sign-in" aria-hidden="true"></i> Se Connecter</a></li>
+        </ul>
     </div>
 
-    <div class="card card-w-title">
-        <h1>Accueil</h1>
+    <div  style="text-align: center;">
+        <div style="margin-top: 70px">
+            <h1>Spiral-Express</h1>
+            <h3>Application de gestion d'envoi, de reception, de livraison et de tracking de colis</h3>
+        </div>
 
+
+        <div style="margin-top: 7%; margin-bottom: 15%">
+            <p><strong>Entrer votre numéro de suivi</strong></p>
+            <input pInputText style="width: 300px; border-radius: 15px">
+        </div>
     </div>
+
 
 </div>
