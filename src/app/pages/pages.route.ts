@@ -9,9 +9,7 @@ import {PARTENAIRE_ROUTES} from './partenaire/partenaire.route';
 
 export const PAGES_ROUTES: Routes = [
     {
-        path: 'accueil',
-        redirectTo: '',
-        pathMatch: 'full',
+        path: '',
         component: AccueilComponent
     },
     {
