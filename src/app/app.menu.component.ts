@@ -17,10 +17,11 @@ export class AppMenuComponent implements OnInit {
             {label: 'Clients', icon: 'fa fa-address-book', routerLink: ['/clients']},
             {label: 'Gestion des envois', icon: 'fa fa-paper-plane', routerLink: ['/envois']},
             {label: 'Partenaires', icon: 'fa fa-users', routerLink: ['/partenaires']},
-            {label: 'Reception coli', icon: 'fa fa-archive', routerLink: ['/reception-coli']},
-            {label: 'Livraison coli', icon: 'fa fa-handshake-o', routerLink: ['/livraison-coli']},
+            {label: 'Reception coli', icon: 'fa fa-truck', routerLink: ['/reception-coli']},
+            {label: 'Livraison coli', icon: 'fa fa-get-pocket', routerLink: ['/livraison-coli']},
 
 
+            /*
             {label: '*******************'},
             // Menu intégré au template.
             {label: 'Dashboard', icon: 'fa fa-fw fa-home', routerLink: ['/dashboard']},
@@ -156,6 +157,7 @@ export class AppMenuComponent implements OnInit {
             },
             {label: 'Utils', icon: 'fa fa-fw fa-wrench', routerLink: ['/utils']},
             {label: 'Documentation', icon: 'fa fa-fw fa-book', routerLink: ['/documentation']}
+            */
         ];
     }
 
