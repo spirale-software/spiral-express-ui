@@ -95,27 +95,66 @@
 
             <!--[Expéditeur]-->
             <div style="margin-bottom: 35px">
-                <span>Coordonnées de l'expéditeur</span>
+                <span>Coordonnées de l'expéditeur & du destinataire</span>
                 <hr size="1px" width="70%" align="left" color="#d9dad9">
-                <div style="margin-top: 15px"><span>Expéditeur</span></div>
-                <div class="p-inputgroup">
-                    <input type="text" pInputText>
-                    <button type="button" pButton pRipple icon="pi pi-search" styleClass="p-button-danger"
-                            (click)="onSearchExpediteurClicked()"></button>
+                <div style="margin-bottom: 15px">
+                    <div style="margin-top: 15px"><span>Expéditeur</span></div>
+                    <div class="p-inputgroup">
+                        <input type="text" pInputText>
+                        <button type="button" pButton pRipple icon="pi pi-search" styleClass="p-button-danger"
+                                (click)="onSearchExpediteurClicked()">
+                        </button>
+                        <button type="button" pButton pRipple icon="pi pi-plus" style="background-color: green">
+                        </button>
+                        <button type="button" pButton pRipple icon="pi pi-eye" style="background-color: purple">
+                        </button>
+                    </div>
                 </div>
-            </div>
 
-            <!--[Destinataire]-->
-            <div>
-                <span>Coordonnées du destinataire</span>
-                <hr size="1px" width="70%" align="left" color="#d9dad9">
                 <div>
                     <div class="ui-fluid">Destinataire</div>
                     <div class="p-inputgroup">
                         <input type="text" pInputText>
-                        <button type="button" pButton pRipple icon="pi pi-search" styleClass="p-button-danger" (click)="onSearchDestinataireClicked()"></button>
+                        <button type="button" pButton pRipple icon="pi pi-search" styleClass="p-button-danger"
+                                (click)="onSearchDestinataireClicked()">
+                        </button>
+                        <button type="button" pButton pRipple icon="pi pi-plus" style="background-color: green">
+                        </button>
+                        <button type="button" pButton pRipple icon="pi pi-eye" style="background-color: purple">
+                        </button>
+
                     </div>
                 </div>
+
+
+            </div>
+
+            <!--[Destinataire]-->
+<!--            <div>-->
+<!--                <span>Coordonnées du destinataire</span>-->
+<!--                <hr size="1px" width="70%" align="left" color="#d9dad9">-->
+<!--                <div>-->
+<!--                    <div class="ui-fluid">Destinataire</div>-->
+<!--                    <div class="p-inputgroup">-->
+<!--                        <input type="text" pInputText>-->
+<!--                        <button type="button" pButton pRipple icon="pi pi-search" styleClass="p-button-danger" (click)="onSearchDestinataireClicked()"></button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+            <div>
+                <span>Rapport de quai & livraison</span>
+                <hr size="1px" width="70%" align="left" color="#d9dad9">
+            <div class="p-grid">
+                <div class="p-col-4">
+                    <div class="ui-fluid"><span>Rapport de quai</span></div>
+                    <textarea pInputTextarea [rows]="3" [cols]="50"></textarea>
+                </div>
+                <div class="p-col">
+                    <div class="ui-fluid"><span>Rapport de livraison</span></div>
+                    <textarea pInputTextarea [rows]="3" [cols]="50"></textarea>
+                </div>
+            </div>
             </div>
 
 
