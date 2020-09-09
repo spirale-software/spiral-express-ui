@@ -100,7 +100,8 @@
                 <div style="margin-top: 15px"><span>Expéditeur</span></div>
                 <div class="p-inputgroup">
                     <input type="text" pInputText>
-                    <button type="button" pButton pRipple icon="pi pi-search" styleClass="p-button-danger"></button>
+                    <button type="button" pButton pRipple icon="pi pi-search" styleClass="p-button-danger"
+                            (click)="onSearchExpediteurClicked()"></button>
                 </div>
             </div>
 
@@ -112,7 +113,7 @@
                     <div class="ui-fluid">Destinataire</div>
                     <div class="p-inputgroup">
                         <input type="text" pInputText>
-                        <button type="button" pButton pRipple icon="pi pi-search" styleClass="p-button-danger"></button>
+                        <button type="button" pButton pRipple icon="pi pi-search" styleClass="p-button-danger" (click)="onSearchDestinataireClicked()"></button>
                     </div>
                 </div>
             </div>

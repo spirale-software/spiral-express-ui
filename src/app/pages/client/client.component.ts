@@ -1,5 +1,5 @@
-import {Component, OnInit} from "@angular/core";
-import {MenuItem} from "primeng";
+import {Component, OnInit, Optional} from "@angular/core";
+import {DynamicDialogConfig, DynamicDialogRef, MenuItem} from "primeng";
 import {ClientService} from "./client.service";
 
 @Component({
@@ -9,9 +9,12 @@ import {ClientService} from "./client.service";
 export class ClientComponent implements OnInit {
 
     breadcrumbItems: MenuItem[];
+
     clients: any[];
 
-    constructor(private clientService: ClientService) {
+    isOpenLikeDialog = false;
+
+    constructor(private clientService: ClientService, @Optional() private ref: DynamicDialogRef) {
         this.breadcrumbItems = [];
         this.breadcrumbItems.push({label: 'Clients'});
         this.clients = [
@@ -22,6 +25,11 @@ export class ClientComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        this.isOpenLikeDialog = this.ref != null;
+    }
+
+    selectClient(client) {
+        this.ref.close(client);
     }
 }
 
