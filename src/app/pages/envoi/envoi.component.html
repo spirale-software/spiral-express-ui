@@ -14,9 +14,9 @@
         <div>
             <p-dataView #dv [value]="envois" [paginator]="true" [rows]="10" paginatorPosition="bottom">
                 <ng-template let-envoi pTemplate="listItem">
-                    <div class="ui-g-12">
-                        <div style="border-bottom: 1px solid #d9dad9; padding-top: 9px">
-                            <div class="ui-g-9">
+                    <div class="p-col-12">
+                        <div class="p-grid p-ai-center vertical-container">
+                            <div class="p-col-9">
                                 <div>
                                     <span style="display: block; font-size: 18px; font-weight: bold">{{ envoi.volumeColi }} m³ - {{ envoi.montantTotalTransaction }} Euro - {{ envoi.etatColi }}</span>
                                     <div>
@@ -33,11 +33,12 @@
                                 </div>
                             </div>
 
-                            <div class="ui-g-3">
+                            <div class="p-col-3">
                                 <button pButton label="Modifier" icon="fa fa-pencil" style="margin-right: 7px" class="ui-button ui-button-warning"></button>
                                 <button pButton label="Supprimer" icon="fa fa-trash" class="ui-button ui-button-danger"></button>
                             </div>
                         </div>
+                        <hr size="1px" align="left" color="#d9dad9">
                     </div>
                 </ng-template>
 
