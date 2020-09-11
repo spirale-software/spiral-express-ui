@@ -12,6 +12,8 @@ export class EnvoiUpdateComponent {
 
     breadcrumbItems: MenuItem[];
 
+    displayEnvoiDetail = false;
+
     constructor(public dialogService: DialogService, private router: Router) {
         this.breadcrumbItems = [];
         this.breadcrumbItems.push({label: 'envois de coli'});
@@ -23,7 +25,7 @@ export class EnvoiUpdateComponent {
     }
 
     onValiderClicked(): void {
-
+        this.displayEnvoiDetail = true;
     }
 
     onSearchExpediteurClicked(): void {
@@ -48,6 +50,10 @@ export class EnvoiUpdateComponent {
                 console.log('Le client est: ', client);
             }
         });
+    }
+
+    validerEnvoi(): void {
+
     }
 
 }

@@ -1,3 +1,20 @@
+<!--
+-->
+
+<p-dialog header="Détail de l'envoi" [(visible)]="displayEnvoiDetail" [modal]="true">
+
+    <app-envoi-detail></app-envoi-detail>
+
+    <p-footer>
+        <div>
+            <button pButton label="Quitter" class="ui-button-secondary" style="margin-right: 7px"
+                    icon="fa fa-times" (click)="displayEnvoiDetail=false">
+            </button>
+            <button pButton label="Valider cet envoi" icon="fa fa-save" (click)="validerEnvoi()"></button>
+        </div>
+    </p-footer>
+</p-dialog>
+
 <div>
     <div style="margin-bottom: 9px">
         <p-breadcrumb [model]="breadcrumbItems" [home]="{icon: 'fa fa-home'}"></p-breadcrumb>
