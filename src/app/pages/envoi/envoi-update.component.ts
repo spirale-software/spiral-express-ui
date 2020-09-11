@@ -2,6 +2,7 @@ import {Component} from "@angular/core";
 import {DialogService, MenuItem} from "primeng";
 import {Router} from "@angular/router";
 import {ClientComponent} from "../client/client.component";
+import {PersonneDetailComponent} from "../shared/component/personne-detail/personne-detail.component";
 
 @Component({
     selector: 'app-envoi',
@@ -13,6 +14,8 @@ export class EnvoiUpdateComponent {
     breadcrumbItems: MenuItem[];
 
     displayEnvoiDetail = false;
+
+    displayPersonneDetail = false;
 
     constructor(public dialogService: DialogService, private router: Router) {
         this.breadcrumbItems = [];
@@ -29,15 +32,15 @@ export class EnvoiUpdateComponent {
     }
 
     onSearchExpediteurClicked(): void {
-       const ref = this.dialogService.open(ClientComponent, {
-           header: 'Sélectionner un expéditeur'
-       });
+        const ref = this.dialogService.open(ClientComponent, {
+            header: 'Sélectionner un expéditeur'
+        });
 
-       ref.onClose.subscribe(client => {
-          if (client) {
-              console.log('Le client est: ', client);
-          }
-       });
+        ref.onClose.subscribe(client => {
+            if (client) {
+                console.log('Le client est: ', client);
+            }
+        });
     }
 
     onSearchDestinataireClicked(): void {
@@ -54,6 +57,14 @@ export class EnvoiUpdateComponent {
 
     validerEnvoi(): void {
 
+    }
+
+    voirDetailDestinataire(): void {
+        this.displayPersonneDetail = true;
+    }
+
+    voirDetailExpediteur(): void {
+        this.displayPersonneDetail = true;
     }
 
 }

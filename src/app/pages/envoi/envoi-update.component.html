@@ -1,16 +1,23 @@
 <!--
 -->
 
-<p-dialog header="Détail de l'envoi" [(visible)]="displayEnvoiDetail" [modal]="true">
+<p-dialog header="Détail de l'envoi" [(visible)]="displayEnvoiDetail || displayPersonneDetail" [modal]="true">
 
-    <app-envoi-detail></app-envoi-detail>
+    <ng-template [ngIf]="displayEnvoiDetail">
+        <app-envoi-detail></app-envoi-detail>
+    </ng-template>
+    <ng-template [ngIf]="displayPersonneDetail">
+        <app-personne-detail></app-personne-detail>
+    </ng-template>
 
     <p-footer>
         <div>
             <button pButton label="Quitter" class="ui-button-secondary" style="margin-right: 7px"
-                    icon="fa fa-times" (click)="displayEnvoiDetail=false">
+                    icon="fa fa-times" (click)="displayEnvoiDetail=false;displayPersonneDetail=false">
             </button>
-            <button pButton label="Valider cet envoi" icon="fa fa-save" (click)="validerEnvoi()"></button>
+            <ng-template [ngIf]="displayEnvoiDetail">
+                <button pButton label="Valider cet envoi" icon="fa fa-save" (click)="validerEnvoi()"></button>
+            </ng-template>
         </div>
     </p-footer>
 </p-dialog>
@@ -121,9 +128,10 @@
                         <button type="button" pButton pRipple icon="pi pi-search" styleClass="p-button-danger"
                                 (click)="onSearchExpediteurClicked()">
                         </button>
-                        <button type="button" pButton pRipple icon="pi pi-plus" style="background-color: green">
-                        </button>
-                        <button type="button" pButton pRipple icon="pi pi-eye" style="background-color: #00ffff">
+<!--                        <button type="button" pButton pRipple icon="pi pi-plus" style="background-color: green">-->
+<!--                        </button>-->
+                        <button type="button" pButton pRipple icon="pi pi-eye" style="background-color: #00ffff"
+                                (click)="voirDetailExpediteur()">
                         </button>
                     </div>
                 </div>
@@ -135,9 +143,10 @@
                         <button type="button" pButton pRipple icon="pi pi-search" styleClass="p-button-danger"
                                 (click)="onSearchDestinataireClicked()">
                         </button>
-                        <button type="button" pButton pRipple icon="pi pi-plus" style="background-color: green">
-                        </button>
-                        <button type="button" pButton pRipple icon="pi pi-eye" style="background-color: #00ffff">
+<!--                        <button type="button" pButton pRipple icon="pi pi-plus" style="background-color: green">-->
+<!--                        </button>-->
+                        <button type="button" pButton pRipple icon="pi pi-eye" style="background-color: #00ffff"
+                                (click)="voirDetailDestinataire()">
                         </button>
 
                     </div>
