@@ -5,9 +5,10 @@ import {EnvoiUpdateComponent} from './envoi-update.component';
 import {SharedModule} from '../shared/shared.module';
 import {EnvoiDetailComponent} from './envoi-detail.component';
 import {CommonModule} from "@angular/common";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
-    imports: [PrimengLibModule, SharedModule, CommonModule],
+    imports: [PrimengLibModule, SharedModule, CommonModule, FormsModule, ReactiveFormsModule],
     exports: [],
     declarations: [
         EnvoiComponent,
