@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {ClientComponent} from '../client/client.component';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {Envoi} from '../shared/model/envoi';
+import {Client} from "../shared/model/client";
 
 @Component({
     selector: 'app-envoi',
@@ -59,8 +60,9 @@ export class EnvoiUpdateComponent {
             header: 'Liste des destinataires liés au client: XYZ'
         });
 
-        ref.onClose.subscribe(client => {
+        ref.onClose.subscribe((client: Client) => {
             if (client) {
+                this.envoiForm.get('expediteur').setValue(client.prenom + ' ' + client.nom);
                 console.log('Le client est: ', client);
             }
         });
@@ -92,6 +94,14 @@ export class EnvoiUpdateComponent {
             rapportQuai: [],
             rapportLivraison: [],
             montant: []
+        });
+
+        this.registerChangeInColi();
+    }
+
+    registerChangeInColi(): void {
+        this.envoiForm.get('coli').valueChanges.subscribe(next => {
+            console.log('Nouvelle Valeur: ', next);
         });
     }
 }
