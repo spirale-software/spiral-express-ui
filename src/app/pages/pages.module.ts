@@ -11,6 +11,8 @@ import {EnvoiModule} from './envoi/envoi.module';
 import {SharedModule} from './shared/shared.module';
 import {TableauDeBordComponent} from './tableau-de-bord/tableau-de-bord.component';
 import {PartenaireModule} from './partenaire/partenaire.module';
+import {RapportDeQuaiComponent} from "./rapport-de-quai/rapport-de-quai.component";
+import {RapportDeLivraisonComponent} from "./rapport-de-livraison/rapport-de-livraison.component";
 
 @NgModule({
     imports: [
@@ -27,7 +29,9 @@ import {PartenaireModule} from './partenaire/partenaire.module';
         LoginComponent,
         LivraisonColiComponent,
         ReceptionColiComponent,
-        TableauDeBordComponent
+        TableauDeBordComponent,
+        RapportDeQuaiComponent,
+        RapportDeLivraisonComponent
     ]
 })
 export class PagesModule {}
