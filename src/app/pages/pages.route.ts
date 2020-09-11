@@ -7,7 +7,8 @@ import {ENVOI_ROUTES} from './envoi/envoi.route';
 import {TableauDeBordComponent} from './tableau-de-bord/tableau-de-bord.component';
 import {PARTENAIRE_ROUTES} from './partenaire/partenaire.route';
 import {LoginComponent} from './login/login.component';
-import {RapportDeQuaiComponent} from "./rapport-de-quai/rapport-de-quai.component";
+import {RapportDeQuaiComponent} from './rapport-de-quai/rapport-de-quai.component';
+import {RapportDeLivraisonComponent} from './rapport-de-livraison/rapport-de-livraison.component';
 
 export const PAGES_ROUTES: Routes = [
     {
@@ -25,6 +26,10 @@ export const PAGES_ROUTES: Routes = [
     {
         path: 'rapport-de-quai',
         component: RapportDeQuaiComponent
+    },
+    {
+        path: 'rapport-de-livraison',
+        component: RapportDeLivraisonComponent
     },
      ...CLIENT_ROUTES,
     ...LIVRAISON_COLI_ROUTES,
