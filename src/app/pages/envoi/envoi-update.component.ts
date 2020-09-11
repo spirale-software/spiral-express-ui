@@ -80,11 +80,13 @@ export class EnvoiUpdateComponent {
 
     initEnvoiForm(): void {
         this.envoiForm = this.fb.group({
-            descriptionColi: [],
-            longueurColi: [],
-            largeurColi: [],
-            hauteurColi: [],
-            poidsColi: [],
+            coli: this.fb.group({
+                description: [],
+                longueur: [],
+                largeur: [],
+                hauteur: [],
+                poids: []
+            }),
             expediteur: [],
             destinataire: [],
             rapportQuai: [],

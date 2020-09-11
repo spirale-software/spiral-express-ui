@@ -22,7 +22,7 @@
     </p-footer>
 </p-dialog>
 
-<div>
+<div [formGroup]="envoiForm">
     <div style="margin-bottom: 9px">
         <p-breadcrumb [model]="breadcrumbItems" [home]="{icon: 'fa fa-home'}"></p-breadcrumb>
     </div>
@@ -59,7 +59,7 @@
                 <div class="p-grid">
                     <div class="p-col">
                         <div class="ui-fluid"><span>Description coli</span></div>
-                        <textarea pInputTextarea [rows]="3" [cols]="50"></textarea>
+                        <textarea pInputTextarea [rows]="3" [cols]="50" [formControl]="envoiForm.get('coli').get('description')"></textarea>
                     </div>
                 </div>
 
@@ -69,14 +69,14 @@
                     <div class="p-col-2">
                         <div class="ui-fluid"><span>Longueur</span></div>
                         <div class="ui-inputgroup">
-                            <input type="text" pInputText placeholder="Longueur">
+                            <input type="text" pInputText placeholder="Longueur" [formControl]="envoiForm.get('coli').get('longueur')">
                             <span class="ui-inputgroup-addon">m</span>
                         </div>
                     </div>
                     <div class="p-col-2">
                         <div class="ui-fluid"><span>Largeur</span></div>
                         <div class="ui-inputgroup">
-                            <input type="text" pInputText placeholder="Largeur">
+                            <input type="text" pInputText placeholder="Largeur" [formControl]="envoiForm.get('coli').get('largeur')">
                             <span class="ui-inputgroup-addon">m</span>
                         </div>
                     </div>
@@ -86,14 +86,14 @@
                     <div class="p-col-2">
                         <div class="ui-fluid"><span>Hauteur</span></div>
                         <div class="ui-inputgroup">
-                            <input type="text" pInputText placeholder="Hauteur">
+                            <input type="text" pInputText placeholder="Hauteur" [formControl]="envoiForm.get('coli').get('hauteur')">
                             <span class="ui-inputgroup-addon">m</span>
                         </div>
                     </div>
                     <div class="p-col-2">
                         <div class="ui-fluid"><span>Poids coli</span></div>
                         <div class="ui-inputgroup">
-                            <input type="text" pInputText placeholder="Poids">
+                            <input type="text" pInputText placeholder="Poids" [formControl]="envoiForm.get('coli').get('poids')">
                             <span class="ui-inputgroup-addon">kg</span>
                         </div>
                     </div>
@@ -124,7 +124,7 @@
                 <div style="margin-bottom: 15px">
                     <div style="margin-top: 15px"><span>Expéditeur</span></div>
                     <div class="p-inputgroup">
-                        <input type="text" pInputText>
+                        <input type="text" pInputText formControlName="expediteur">
                         <button type="button" pButton pRipple icon="pi pi-search" styleClass="p-button-danger"
                                 (click)="onSearchExpediteurClicked()">
                         </button>
@@ -139,7 +139,7 @@
                 <div>
                     <div class="ui-fluid">Destinataire</div>
                     <div class="p-inputgroup">
-                        <input type="text" pInputText>
+                        <input type="text" pInputText formControlName="destinataire">
                         <button type="button" pButton pRipple icon="pi pi-search" styleClass="p-button-danger"
                                 (click)="onSearchDestinataireClicked()">
                         </button>
@@ -174,11 +174,11 @@
             <div class="p-grid">
                 <div class="p-col-4">
                     <div class="ui-fluid"><span>Rapport de quai</span></div>
-                    <textarea pInputTextarea [rows]="3" [cols]="50"></textarea>
+                    <textarea pInputTextarea [rows]="3" [cols]="50" formControlName="rapportQuai"></textarea>
                 </div>
                 <div class="p-col">
                     <div class="ui-fluid"><span>Rapport de livraison</span></div>
-                    <textarea pInputTextarea [rows]="3" [cols]="50"></textarea>
+                    <textarea pInputTextarea [rows]="3" [cols]="50" formControlName="rapportLivraison"></textarea>
                 </div>
             </div>
             </div>
@@ -187,7 +187,7 @@
             <div style="margin-top: 31px">
                 <div class="ui-fluid">Montant total à payer pour cet envoi</div>
                 <div class="ui-inputgroup">
-                    <input type="text" pInputText placeholder="Prix">
+                    <input type="text" pInputText placeholder="Prix" formControlName="montant">
                     <span class="ui-inputgroup-addon">EUR</span>
                 </div>
             </div>
