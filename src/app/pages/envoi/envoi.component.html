@@ -18,16 +18,16 @@
                         <div class="p-grid p-ai-center vertical-container">
                             <div class="p-col-8">
                                 <div>
-                                    <span style="display: block; font-size: 18px; font-weight: bold">{{ envoi.volumeColi }} m³ - {{ envoi.montantTotalTransaction }} Euro - {{ envoi.etatColi }}</span>
+                                    <span style="display: block; font-size: 18px; font-weight: bold">{{ getVolume(envoi.coli) }} m³ - {{ envoi.montant }} Euro - {{ envoi.statut }}</span>
                                     <div>
-                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Emetteur: <strong>{{ envoi.emetteur }}</strong></span>
-                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Pays expédition: <strong>{{ envoi.paysExpedition }}</strong></span>
+                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Expéditeur: <strong>{{ getExpediteur(envoi.expediteur) }}</strong></span>
+                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Pays expédition: <strong>{{ getPaysExpedition(envoi.expediteur) }}</strong></span>
                                     </div>
                                     <div>
-                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Destinataire: <strong>{{ envoi.destinataire }}</strong></span>
-                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Pays de destination: <strong>{{ envoi.paysDestination }}</strong></span>
-                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Ville de destination: <strong>{{ envoi.villeDestination }}</strong></span>
-                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Adresse de destination: <strong>{{ envoi.adresseDestination }}</strong></span>
+                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Destinataire: <strong>{{ envoi.destinataire.nom }}</strong></span>
+                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Pays de destination: <strong>{{ envoi.destinataire.pays }}</strong></span>
+                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Ville de destination: <strong>{{ envoi.destinataire.ville }}</strong></span>
+                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Adresse de destination: <strong>{{ envoi.destinataire.adresse }}</strong></span>
                                     </div>
 
                                 </div>

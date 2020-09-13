@@ -6,6 +6,9 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {Envoi} from '../shared/model/envoi';
 import {Client} from "../shared/model/client";
 import {DestinataireComponent} from "../destinataire/destinataire.component";
+import {Coli} from "../shared/model/coli";
+import {EnvoiService} from "./envoi.service";
+import {Personne} from "../shared/model/personne";
 
 @Component({
     selector: 'app-envoi',
@@ -28,7 +31,13 @@ export class EnvoiUpdateComponent {
 
     expediteurSelectionner: Client;
 
-    constructor(public dialogService: DialogService, private router: Router, private fb: FormBuilder) {
+    destinataireSelectionner: Personne;
+
+    volume: number;
+
+    poidsVolumetrique: number;
+
+    constructor(public dialogService: DialogService, private router: Router, private fb: FormBuilder, private envoiService: EnvoiService) {
         this.breadcrumbItems = [];
         this.breadcrumbItems.push({label: 'envois de coli'});
         this.breadcrumbItems.push({label: 'encodage nouvel envoi'});
@@ -36,6 +45,9 @@ export class EnvoiUpdateComponent {
 
         const myDate = new Date();
         this.currentDate = `${myDate.getDate()}/${myDate.getUTCMonth() + 1}/${myDate.getFullYear()}`;
+
+        this.volume = 0;
+        this.poidsVolumetrique = 0;
     }
 
     back(): void {
@@ -55,7 +67,6 @@ export class EnvoiUpdateComponent {
             if (client) {
                 this.expediteurSelectionner = client;
                 this.envoiForm.get('expediteur').setValue(client.prenom);
-                console.log('Le client est: ', client);
             }
         });
     }
@@ -66,16 +77,27 @@ export class EnvoiUpdateComponent {
             header,
         });
 
-        ref.onClose.subscribe((client: Client) => {
-            if (client) {
-                this.envoiForm.get('destinataire').setValue(client.prenom);
-                console.log('Le client est: ', client);
+        ref.onClose.subscribe((destinataire: Personne) => {
+            if (destinataire) {
+                this.destinataireSelectionner = destinataire;
+                this.envoiForm.get('destinataire').setValue(destinataire.prenom);
             }
         });
     }
 
     validerEnvoi(): void {
+        console.log(this.envoiForm.value);
+        this.envoi = Object.assign({}, this.envoiForm.value);
+        this.envoi.expediteur = this.expediteurSelectionner;
+        this.envoi.destinataire = this.destinataireSelectionner;
+        this.envoiService.create(this.envoi).subscribe(res => {
+            console.log(res);
+        });
+        this.displayEnvoiDetail = false;
+    }
 
+    navigateTo() {
+        this.router.navigate(['/envois']);
     }
 
     voirDetailDestinataire(): void {
@@ -106,8 +128,11 @@ export class EnvoiUpdateComponent {
     }
 
     registerChangeInColi(): void {
-        this.envoiForm.get('coli').valueChanges.subscribe(next => {
-            console.log('Nouvelle Valeur: ', next);
+        this.envoiForm.get('coli').valueChanges.subscribe((next: Coli) => {
+            if (next.hauteur && next.largeur && next.longueur) {
+                this.volume = next.longueur * next.largeur * next.hauteur;
+                this.poidsVolumetrique = this.volume / 5000;
+            }
         });
     }
 }

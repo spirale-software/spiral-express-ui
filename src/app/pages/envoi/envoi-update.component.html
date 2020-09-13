@@ -1,7 +1,7 @@
 <!--
 -->
 
-<p-dialog header="Détail de l'envoi" [(visible)]="displayEnvoiDetail || displayPersonneDetail" [modal]="true">
+<p-dialog header="Détail de l'envoi" [(visible)]="displayEnvoiDetail || displayPersonneDetail" [modal]="true" (onHide)="navigateTo()">
 
     <ng-template [ngIf]="displayEnvoiDetail">
         <app-envoi-detail></app-envoi-detail>
@@ -103,14 +103,14 @@
                     <div class="p-col-2">
                         <div class="ui-fluid">Poids volumétrique</div>
                         <div class="ui-inputgroup">
-                            <input type="text" pInputText disabled value="9">
+                            <input type="text" pInputText disabled [value]="poidsVolumetrique">
                             <span class="ui-inputgroup-addon">kg/m³</span>
                         </div>
                     </div>
                     <div class="p-col-2">
                         <div class="ui-fluid">Volume</div>
                         <div class="ui-inputgroup">
-                            <input type="text" pInputText disabled value="34">
+                            <input type="text" pInputText disabled [value]="volume">
                             <span class="ui-inputgroup-addon">m³</span>
                         </div>
                     </div>
