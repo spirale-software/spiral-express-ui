@@ -5,6 +5,7 @@ import {ClientComponent} from '../client/client.component';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {Envoi} from '../shared/model/envoi';
 import {Client} from "../shared/model/client";
+import {DestinataireComponent} from "../destinataire/destinataire.component";
 
 @Component({
     selector: 'app-envoi',
@@ -24,6 +25,8 @@ export class EnvoiUpdateComponent {
     envoiForm: FormGroup;
 
     currentDate;
+
+    expediteurSelectionner: Client;
 
     constructor(public dialogService: DialogService, private router: Router, private fb: FormBuilder) {
         this.breadcrumbItems = [];
@@ -50,19 +53,22 @@ export class EnvoiUpdateComponent {
 
         ref.onClose.subscribe(client => {
             if (client) {
+                this.expediteurSelectionner = client;
+                this.envoiForm.get('expediteur').setValue(client.prenom);
                 console.log('Le client est: ', client);
             }
         });
     }
 
     onSearchDestinataireClicked(): void {
-        const ref = this.dialogService.open(ClientComponent, {
-            header: 'Liste des destinataires liés au client: XYZ'
+        const header = `Liste des destinataires liés au client: ${this.expediteurSelectionner.nom} ${this.expediteurSelectionner.prenom}`;
+        const ref = this.dialogService.open(DestinataireComponent, {
+            header,
         });
 
         ref.onClose.subscribe((client: Client) => {
             if (client) {
-                this.envoiForm.get('expediteur').setValue(client.prenom + ' ' + client.nom);
+                this.envoiForm.get('destinataire').setValue(client.prenom);
                 console.log('Le client est: ', client);
             }
         });

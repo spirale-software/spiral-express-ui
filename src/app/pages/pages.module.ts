@@ -11,8 +11,9 @@ import {EnvoiModule} from './envoi/envoi.module';
 import {SharedModule} from './shared/shared.module';
 import {TableauDeBordComponent} from './tableau-de-bord/tableau-de-bord.component';
 import {PartenaireModule} from './partenaire/partenaire.module';
-import {RapportDeQuaiComponent} from "./rapport-de-quai/rapport-de-quai.component";
-import {RapportDeLivraisonComponent} from "./rapport-de-livraison/rapport-de-livraison.component";
+import {RapportDeQuaiComponent} from './rapport-de-quai/rapport-de-quai.component';
+import {RapportDeLivraisonComponent} from './rapport-de-livraison/rapport-de-livraison.component';
+import {DestinataireModule} from './destinataire/destinataire.module';
 
 @NgModule({
     imports: [
@@ -21,7 +22,8 @@ import {RapportDeLivraisonComponent} from "./rapport-de-livraison/rapport-de-liv
         ClientModule,
         EnvoiModule,
         PartenaireModule,
-        SharedModule
+        SharedModule,
+        DestinataireModule
     ],
     exports: [RouterModule, AccueilComponent],
     declarations: [
