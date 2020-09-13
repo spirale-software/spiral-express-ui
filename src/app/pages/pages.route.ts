@@ -9,6 +9,7 @@ import {PARTENAIRE_ROUTES} from './partenaire/partenaire.route';
 import {LoginComponent} from './login/login.component';
 import {RapportDeQuaiComponent} from './rapport-de-quai/rapport-de-quai.component';
 import {RapportDeLivraisonComponent} from './rapport-de-livraison/rapport-de-livraison.component';
+import {DESTINATAIRE_ROUTES} from "./destinataire/destinataire.route";
 
 export const PAGES_ROUTES: Routes = [
     {
@@ -35,5 +36,6 @@ export const PAGES_ROUTES: Routes = [
     ...LIVRAISON_COLI_ROUTES,
     ...RECEPTION_COLI_ROUTES,
     ...ENVOI_ROUTES,
-    ...PARTENAIRE_ROUTES
+    ...PARTENAIRE_ROUTES,
+    ...DESTINATAIRE_ROUTES
 ];
