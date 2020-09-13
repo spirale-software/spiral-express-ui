@@ -105,6 +105,7 @@ import {NodeService} from './demo/service/nodeservice';
 // Application services
 import {MenuService} from './app.menu.service';
 import {PagesModule} from "./pages/pages.module";
+import {ZXingScannerModule} from "@zxing/ngx-scanner";
 
 @NgModule({
     imports: [
