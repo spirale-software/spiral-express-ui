@@ -1,10 +1,12 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable, of} from 'rxjs';
 import {Envoi} from '../shared/model/envoi';
 
 @Injectable({ providedIn: 'root' })
 export class EnvoiService {
+
+    private url = 'api/express/envois';
 
     private envois: Envoi[] = [];
 
@@ -24,6 +26,11 @@ export class EnvoiService {
     }
 
     getAll(): Observable<Envoi[]> {
-        return of(this.envois);
+       return  this.http.get<Envoi[]>(this.url);
+    }
+
+    genererDocument(envoiId: number): Observable<any> {
+        return this.http.get(`${this.url}/${envoiId}/generer-fiche-envoi`, {
+            headers: new HttpHeaders().set('Accept', 'application/pdf'), responseType: 'blob'});
     }
 }

@@ -24,16 +24,17 @@
                                         <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Pays expédition: <strong>{{ getPaysExpedition(envoi.expediteur) }}</strong></span>
                                     </div>
                                     <div>
-                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Destinataire: <strong>{{ envoi.destinataire.nom }}</strong></span>
-                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Pays de destination: <strong>{{ envoi.destinataire.pays }}</strong></span>
-                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Ville de destination: <strong>{{ envoi.destinataire.ville }}</strong></span>
-                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Adresse de destination: <strong>{{ envoi.destinataire.adresse }}</strong></span>
+                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Destinataire: <strong>{{ envoi?.destinataire?.nom }}</strong></span>
+                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Pays de destination: <strong>{{ envoi?.destinataire?.pays }}</strong></span>
+                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Ville de destination: <strong>{{ envoi?.destinataire?.ville }}</strong></span>
+                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Adresse de destination: <strong>{{ envoi?.destinataire?.adresse }}</strong></span>
                                     </div>
 
                                 </div>
                             </div>
 
-                            <div class="p-col-3">
+                            <div class="p-col-4">
+                                <button pButton label="Imprimer" icon="pi pi-file-pdf" style="margin-right: 7px" (click)="genererDocument(envoi.id)"></button>
                                 <button pButton label="Modifier" icon="fa fa-pencil" style="margin-right: 7px" class="ui-button ui-button-warning"></button>
                                 <button pButton label="Supprimer" icon="fa fa-trash" class="ui-button ui-button-danger"></button>
                             </div>

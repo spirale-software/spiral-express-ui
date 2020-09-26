@@ -39,19 +39,41 @@ export class EnvoiComponent implements OnInit {
     ngOnInit(): void {
         this.envoiService.getAll().subscribe(res => {
             this.envois = res;
+            console.log(res);
         });
     }
 
     getVolume(coli: Coli): number {
-        return coli.longueur * coli.largeur * coli.hauteur;
+        let volume = 0;
+        if (coli) {
+            volume = coli.longueur * coli.largeur * coli.hauteur;
+        }
+        return volume;
     }
 
     getExpediteur(expediteur: Client): string {
-        return expediteur.prenom + ' ' + expediteur.nom;
+        let expediteurNom = '';
+        if (expediteur) {
+            expediteurNom = expediteur.prenom + ' ' + expediteur.nom;
+        }
+        return expediteurNom;
     }
 
     getPaysExpedition(expediteur: Client): string {
-        return expediteur.pays;
+        if (expediteur) {
+            return expediteur.pays;
+        }
+        return null;
+
+    }
+
+    genererDocument(envoiId: null): void {
+        this.envoiService.genererDocument(envoiId).subscribe(res => {
+            console.log('genererDocument: ', res);
+            const file = new Blob([res], {type: 'application/pdf'});
+            const fileURL = URL.createObjectURL(file);
+            window.open(fileURL);
+        });
     }
 
 }

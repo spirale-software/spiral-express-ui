@@ -4,7 +4,7 @@ import {Personne} from './personne';
 import {StatutEnvoi} from './statut-envoi';
 
 export interface Envoi {
-    date ?: number;
+    dateCreation ?: any;
     statut ?: StatutEnvoi;
     reference ?: string;
     coli ?: Coli;
