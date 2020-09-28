@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component, EventEmitter, Output} from "@angular/core";
 
 @Component({
     selector: 'app-scanner-document',
@@ -6,6 +6,8 @@ import {Component} from "@angular/core";
 })
 export class ScannerDocumentComponent {
     isScannerAllowed = false;
+
+    @Output() scanSuccess = new EventEmitter<number>();
 
     constructor() {
 
@@ -16,6 +18,7 @@ export class ScannerDocumentComponent {
     }
 
     onScanOK(reference): void {
+        this.scanSuccess.emit(reference);
         console.log('onScanOK: ', reference);
     }
 }

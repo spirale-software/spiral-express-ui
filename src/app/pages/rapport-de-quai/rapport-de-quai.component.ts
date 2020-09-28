@@ -1,5 +1,6 @@
 import {Component} from "@angular/core";
 import {MenuItem} from "primeng";
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-rapport-de-quai',
@@ -9,9 +10,13 @@ export class RapportDeQuaiComponent {
 
     breadcrumbItems: MenuItem[];
 
-    constructor() {
+    constructor(protected router: Router) {
         this.breadcrumbItems = [];
         this.breadcrumbItems.push({label: 'Rapport de quai'});
+    }
+
+    onScanSuccess(reference: number) {
+        this.router.navigate(['/envois']);
     }
 
 
