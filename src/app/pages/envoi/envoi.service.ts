@@ -21,8 +21,8 @@ export class EnvoiService {
         return null;
     }
 
-    getById(id: number): Observable<Envoi> {
-        return null;
+    getById(envoiId: number): Observable<Envoi> {
+        return this.http.get(`${this.url}/${envoiId}`);
     }
 
     getAll(): Observable<Envoi[]> {

@@ -18,7 +18,13 @@
                         <div class="p-grid p-ai-center vertical-container">
                             <div class="p-col-8">
                                 <div>
-                                    <span style="display: block; font-size: 18px; font-weight: bold">{{ getVolume(envoi.coli) }} m³ - {{ envoi.montant }} Euro - {{ envoi.statut }}</span>
+                                    <span style="display: inline-block; font-size: 18px; font-weight: bold; padding-right: 400px">{{ envoi.reference }} </span>
+                                    <span style="background-color: #00A1F1; border-radius: 30%; color: white; padding: 7px 5px">{{ envoi.statut }}</span>
+                                    <div>
+                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Volume: <strong>{{ getVolume(envoi.coli) }} m³</strong></span>
+                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Poids: <strong>{{ envoi.coli.poids }} kg</strong></span>
+                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Montant payé: <strong>{{ envoi.montant }} EUR</strong></span>
+                                    </div>
                                     <div>
                                         <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Expéditeur: <strong>{{ getExpediteur(envoi.expediteur) }}</strong></span>
                                         <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Pays expédition: <strong>{{ getPaysExpedition(envoi.expediteur) }}</strong></span>
@@ -35,8 +41,9 @@
 
                             <div class="p-col-4">
                                 <button pButton label="Imprimer" icon="pi pi-file-pdf" style="margin-right: 7px" (click)="genererDocument(envoi.id)"></button>
+                                <button pButton label="Détail" icon="fa fa-eye" style="margin-right: 7px; background-color: #17a2b8" [routerLink]="['/envois', envoi.id, 'detail']"></button>
                                 <button pButton label="Modifier" icon="fa fa-pencil" style="margin-right: 7px" class="ui-button ui-button-warning"></button>
-                                <button pButton label="Supprimer" icon="fa fa-trash" class="ui-button ui-button-danger"></button>
+<!--                                <button pButton label="Supprimer" icon="fa fa-trash" class="ui-button ui-button-danger"></button>-->
                             </div>
                         </div>
                         <hr size="1px" align="left" color="#d9dad9">
