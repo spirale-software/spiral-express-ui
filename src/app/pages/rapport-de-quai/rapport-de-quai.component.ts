@@ -16,9 +16,8 @@ export class RapportDeQuaiComponent {
     }
 
     onScanSuccess(reference: number) {
-        this.router.navigate(['/envois']);
+        this.router.navigate(['/envois', reference, 'rapport-de-quai']);
     }
-
 
 }
 

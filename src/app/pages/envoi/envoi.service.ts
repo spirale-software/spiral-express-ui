@@ -25,6 +25,10 @@ export class EnvoiService {
         return this.http.get(`${this.url}/${envoiId}`);
     }
 
+    findByReference(reference: string): Observable<Envoi> {
+        return this.http.get(`${this.url}/${reference}/reference`);
+    }
+
     getAll(): Observable<Envoi[]> {
        return  this.http.get<Envoi[]>(this.url);
     }

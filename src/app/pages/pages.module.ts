@@ -14,6 +14,8 @@ import {PartenaireModule} from './partenaire/partenaire.module';
 import {RapportDeQuaiComponent} from './rapport-de-quai/rapport-de-quai.component';
 import {RapportDeLivraisonComponent} from './rapport-de-livraison/rapport-de-livraison.component';
 import {DestinataireModule} from './destinataire/destinataire.module';
+import {RapportDeQuaiUpdateComponent} from "./rapport-de-quai/rapport-de-quai-update.component";
+import {RapportDeQuaiModule} from "./rapport-de-quai/rapport-de-quai.module";
 
 @NgModule({
     imports: [
@@ -23,7 +25,8 @@ import {DestinataireModule} from './destinataire/destinataire.module';
         EnvoiModule,
         PartenaireModule,
         SharedModule,
-        DestinataireModule
+        DestinataireModule,
+        RapportDeQuaiModule
     ],
     exports: [RouterModule, AccueilComponent],
     declarations: [
@@ -32,7 +35,6 @@ import {DestinataireModule} from './destinataire/destinataire.module';
         LivraisonColiComponent,
         ReceptionColiComponent,
         TableauDeBordComponent,
-        RapportDeQuaiComponent,
         RapportDeLivraisonComponent
     ]
 })

@@ -10,6 +10,7 @@ import {LoginComponent} from './login/login.component';
 import {RapportDeQuaiComponent} from './rapport-de-quai/rapport-de-quai.component';
 import {RapportDeLivraisonComponent} from './rapport-de-livraison/rapport-de-livraison.component';
 import {DESTINATAIRE_ROUTES} from "./destinataire/destinataire.route";
+import {RAPPORT_DE_QUAI_ROUTES} from "./rapport-de-quai/rapport-de-quai.route";
 
 export const PAGES_ROUTES: Routes = [
     {
@@ -25,10 +26,6 @@ export const PAGES_ROUTES: Routes = [
         component: LoginComponent
     },
     {
-        path: 'rapport-de-quai',
-        component: RapportDeQuaiComponent
-    },
-    {
         path: 'rapport-de-livraison',
         component: RapportDeLivraisonComponent
     },
@@ -37,5 +34,6 @@ export const PAGES_ROUTES: Routes = [
     ...RECEPTION_COLI_ROUTES,
     ...ENVOI_ROUTES,
     ...PARTENAIRE_ROUTES,
-    ...DESTINATAIRE_ROUTES
+    ...DESTINATAIRE_ROUTES,
+    ...RAPPORT_DE_QUAI_ROUTES
 ];
