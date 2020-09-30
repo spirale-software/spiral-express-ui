@@ -37,4 +37,8 @@ export class EnvoiService {
         return this.http.get(`${this.url}/${envoiId}/generer-fiche-envoi`, {
             headers: new HttpHeaders().set('Accept', 'application/pdf'), responseType: 'blob'});
     }
+
+    calculerVolume(envoi: Envoi) {
+        return envoi.coli.hauteur * envoi.coli.largeur * envoi.coli.longueur;
+    }
 }
