@@ -7,10 +7,9 @@ import {ENVOI_ROUTES} from './envoi/envoi.route';
 import {TableauDeBordComponent} from './tableau-de-bord/tableau-de-bord.component';
 import {PARTENAIRE_ROUTES} from './partenaire/partenaire.route';
 import {LoginComponent} from './login/login.component';
-import {RapportDeQuaiComponent} from './rapport-de-quai/rapport-de-quai.component';
 import {RapportDeLivraisonComponent} from './rapport-de-livraison/rapport-de-livraison.component';
-import {DESTINATAIRE_ROUTES} from "./destinataire/destinataire.route";
-import {RAPPORT_DE_QUAI_ROUTES} from "./rapport-de-quai/rapport-de-quai.route";
+import {DESTINATAIRE_ROUTES} from './destinataire/destinataire.route';
+import {RAPPORT_DE_QUAI_ROUTES} from './rapport-de-quai/rapport-de-quai.route';
 
 export const PAGES_ROUTES: Routes = [
     {

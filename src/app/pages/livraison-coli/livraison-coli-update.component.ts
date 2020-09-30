@@ -1,8 +1,8 @@
-import {Component, OnInit} from "@angular/core";
-import {EnvoiService} from "../envoi/envoi.service";
-import {Envoi} from "../shared/model/envoi";
-import {MenuItem} from "primeng";
-import {ActivatedRoute} from "@angular/router";
+import {Component, OnInit} from '@angular/core';
+import {EnvoiService} from '../envoi/envoi.service';
+import {Envoi} from '../shared/model/envoi';
+import {MenuItem} from 'primeng';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
     selector: 'app-livraison-coli-update',

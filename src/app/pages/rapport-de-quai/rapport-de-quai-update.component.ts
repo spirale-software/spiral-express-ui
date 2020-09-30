@@ -1,8 +1,8 @@
-import {Component, Input, OnInit} from "@angular/core";
-import {Envoi} from "../shared/model/envoi";
-import {ActivatedRoute} from "@angular/router";
-import {EnvoiService} from "../envoi/envoi.service";
-import {MenuItem} from "primeng";
+import {Component, OnInit} from '@angular/core';
+import {Envoi} from '../shared/model/envoi';
+import {ActivatedRoute} from '@angular/router';
+import {EnvoiService} from '../envoi/envoi.service';
+import {MenuItem} from 'primeng';
 
 @Component({
     selector: 'app-rapport-de-quai-update',
