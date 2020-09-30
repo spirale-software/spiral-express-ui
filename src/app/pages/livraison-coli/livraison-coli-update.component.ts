@@ -2,6 +2,7 @@ import {Component, OnInit} from "@angular/core";
 import {EnvoiService} from "../envoi/envoi.service";
 import {Envoi} from "../shared/model/envoi";
 import {MenuItem} from "primeng";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
     selector: 'app-livraison-coli-update',
@@ -15,7 +16,9 @@ export class LivraisonColiUpdateComponent implements OnInit {
 
     breadcrumbItems: MenuItem[];
 
-    constructor(private envoiService: EnvoiService) {
+    display = false;
+
+    constructor(private envoiService: EnvoiService, private route: ActivatedRoute) {
         this.breadcrumbItems = [];
         this.breadcrumbItems.push({label: 'envois de coli'});
         this.breadcrumbItems.push({label: 'livraison coli'});
@@ -25,16 +28,26 @@ export class LivraisonColiUpdateComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        const reference = this.route.snapshot.paramMap.get('reference');
+        this.setEnvoi(reference);
+    }
 
+    setEnvoi(reference: string): void {
+        this.envoiService.findByReference(reference).subscribe(res => {
+            this.envoi = res;
+            this.coliVolume = this.envoiService.calculerVolume(res);
+        });
     }
 
     back(): void {
         window.history.back();
     }
 
+    onConfirmerReceptionClicked() {
+        this.display = false;
+    }
+
     onValiderClicked() {
-        this.envoiService.update(this.envoi).subscribe(res => {
-            console.log('onValiderClicked: ', res);
-        });
+        this.display = true;
     }
 }
