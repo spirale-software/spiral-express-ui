@@ -5,17 +5,15 @@ import {PAGES_ROUTES} from './pages.route';
 import {LoginComponent} from './login/login.component';
 import {PrimengLibModule} from './shared/primeng-lib/primeng-lib.module';
 import {ClientModule} from './client/client.module';
-import {LivraisonColiComponent} from './livraison-coli/livraison-coli.component';
 import {ReceptionColiComponent} from './reception-coli/reception-coli.component';
 import {EnvoiModule} from './envoi/envoi.module';
 import {SharedModule} from './shared/shared.module';
 import {TableauDeBordComponent} from './tableau-de-bord/tableau-de-bord.component';
 import {PartenaireModule} from './partenaire/partenaire.module';
-import {RapportDeQuaiComponent} from './rapport-de-quai/rapport-de-quai.component';
 import {RapportDeLivraisonComponent} from './rapport-de-livraison/rapport-de-livraison.component';
 import {DestinataireModule} from './destinataire/destinataire.module';
-import {RapportDeQuaiUpdateComponent} from "./rapport-de-quai/rapport-de-quai-update.component";
-import {RapportDeQuaiModule} from "./rapport-de-quai/rapport-de-quai.module";
+import {RapportDeQuaiModule} from './rapport-de-quai/rapport-de-quai.module';
+import {LivraisonColiModule} from './livraison-coli/livraison-coli.module';
 
 @NgModule({
     imports: [
@@ -26,13 +24,13 @@ import {RapportDeQuaiModule} from "./rapport-de-quai/rapport-de-quai.module";
         PartenaireModule,
         SharedModule,
         DestinataireModule,
-        RapportDeQuaiModule
+        RapportDeQuaiModule,
+        LivraisonColiModule
     ],
     exports: [RouterModule, AccueilComponent],
     declarations: [
         AccueilComponent,
         LoginComponent,
-        LivraisonColiComponent,
         ReceptionColiComponent,
         TableauDeBordComponent,
         RapportDeLivraisonComponent
