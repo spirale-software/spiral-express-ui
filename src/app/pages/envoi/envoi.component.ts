@@ -1,13 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 import {MenuItem} from 'primeng';
 import {EnvoiService} from './envoi.service';
-import {Envoi} from "../shared/model/envoi";
-import {Coli} from "../shared/model/coli";
-import {Client} from "../shared/model/client";
+import {Envoi} from '../shared/model/envoi';
+import {Coli} from '../shared/model/coli';
+import {Client} from '../shared/model/client';
 
 @Component({
     selector: 'app-envoi',
-    templateUrl: './envoi.component.html'
+    templateUrl: './envoi.component.html',
+    styleUrls: ['./envoi.component.scss']
 })
 export class EnvoiComponent implements OnInit {
 

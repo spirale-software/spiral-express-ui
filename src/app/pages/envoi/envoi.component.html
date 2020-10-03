@@ -8,7 +8,8 @@
     <div class="card card-w-title">
         <div class="ui-g">
             <div class="ui-g-9"><h1>Liste des envois de coli</h1></div>
-            <div class="ui-g-3"><p-button label="Encoder un nouvel envoi" icon="pi pi-plus" [routerLink]="['/envois/creer']"></p-button></div>
+            <div class="ui-g-3 small-screen-hide"><p-button label="Encoder un nouvel envoi" icon="pi pi-plus" [routerLink]="['/envois/creer']"></p-button></div>
+            <div class="ui-g-3 big-screen-hide"><p-button icon="pi pi-plus" [routerLink]="['/envois/creer']"></p-button></div>
         </div>
 
         <div>
@@ -16,10 +17,16 @@
                 <ng-template let-envoi pTemplate="listItem">
                     <div class="p-col-12">
                         <div class="p-grid p-ai-center vertical-container">
-                            <div class="p-col-8">
+                            <div class="p-col-12 p-md-8">
                                 <div>
-                                    <span style="display: inline-block; font-size: 18px; font-weight: bold; padding-right: 400px">{{ envoi.reference }} </span>
-                                    <span style="background-color: #00A1F1; border-radius: 30%; color: white; padding: 7px 5px">{{ envoi.statut }}</span>
+                                    <div class="p-grid p-ai-center vertical-container">
+                                        <div class="p-col">
+                                            <span style="display: inline-block; font-size: 18px; font-weight: bold;">{{ envoi.reference }} </span>
+                                        </div>
+                                        <div class="p-col">
+                                            <span style="background-color: #FBBC05; border-radius: 50%; color: white; padding: 7px 11px;">{{ 'Pris en charge' }}</span>
+                                        </div>
+                                    </div>
                                     <div>
                                         <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Volume: <strong>{{ getVolume(envoi.coli) }} m³</strong></span>
                                         <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Poids: <strong>{{ envoi.coli.poids }} kg</strong></span>
@@ -39,7 +46,7 @@
                                 </div>
                             </div>
 
-                            <div class="p-col-4">
+                            <div class="p-md-4 small-screen-hide">
                                 <button pButton label="Imprimer" icon="pi pi-file-pdf" style="margin-right: 7px" (click)="genererDocument(envoi.id)"></button>
                                 <button pButton label="Détail" icon="fa fa-eye" style="margin-right: 7px; background-color: #17a2b8" [routerLink]="['/envois', envoi.id, 'detail']"></button>
                                 <button pButton label="Modifier" icon="fa fa-pencil" style="margin-right: 7px" class="ui-button ui-button-warning"></button>
