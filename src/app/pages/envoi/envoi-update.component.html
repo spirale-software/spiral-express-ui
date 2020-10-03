@@ -23,11 +23,9 @@
 </p-dialog>
 
 <div [formGroup]="envoiForm">
-    <div style="margin-bottom: 9px;" class="small-screen-hide">
-        <p-breadcrumb [model]="breadcrumbItems" [home]="{icon: 'fa fa-home'}"></p-breadcrumb>
-    </div>
+    <app-breadcrumb [breadcrumbItems]="breadcrumbItems"></app-breadcrumb>
 
-    <div class="card card-w-title">
+    <div class="card card-w-title main-content">
         <div class="p-grid">
             <div class="p-col-12 p-md-9"><h1>Encodage d'un nouvel envoi</h1></div>
         </div>
