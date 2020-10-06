@@ -62,7 +62,8 @@ export class EnvoiComponent implements OnInit {
 
     getPaysExpedition(expediteur: Client): string {
         if (expediteur) {
-            return expediteur.pays;
+            // return expediteur.pays;
+            return 'TODO';
         }
         return null;
 

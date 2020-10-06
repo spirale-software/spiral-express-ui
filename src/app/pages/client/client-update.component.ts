@@ -1,6 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {MenuItem} from "primeng";
 import {ClientService} from "./client.service";
+import {FormBuilder, FormGroup} from "@angular/forms";
 
 @Component({
     selector: 'app-client-update',
@@ -10,11 +11,15 @@ export class ClientUpdateComponent implements OnInit {
 
     breadcrumbItems: MenuItem[];
 
-    constructor(private clientService: ClientService) {
+    clientForm: FormGroup;
+
+    constructor(private clientService: ClientService, private fb: FormBuilder) {
 
         this.breadcrumbItems = [];
         this.breadcrumbItems.push({label: 'Clients'});
         this.breadcrumbItems.push({label: 'créer nouveau client'});
+
+        this.initForm();
     }
 
     ngOnInit(): void {
@@ -24,7 +29,22 @@ export class ClientUpdateComponent implements OnInit {
         window.history.back();
     }
 
-    enregistrer(): void {
+    initForm() {
+        this.clientForm = this.fb.group({
+            nom: [],
+            prenom: [],
+            telephone: [],
+            email: [],
+            adresse: this.fb.group({
+                pays: [],
+                codePostal: [],
+                rue: [],
+                ville: []
+            })
+        });
+    }
 
+    enregistrer(): void {
+        console.log('clientForm.value: ', this.clientForm.value);
     }
 }

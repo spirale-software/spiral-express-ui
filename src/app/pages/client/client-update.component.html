@@ -1,47 +1,70 @@
 <!--
 -->
 <div>
-    <div style="margin-bottom: 9px">
-        <p-breadcrumb [model]="breadcrumbItems" [home]="{icon: 'fa fa-home'}"></p-breadcrumb>
-    </div>
+    <app-breadcrumb [breadcrumbItems]="breadcrumbItems"></app-breadcrumb>
 
-    <div class="card card-w-title">
+    <div class="card card-w-title main-content" [formGroup]="clientForm">
         <div class="ui-g">
             <div class="ui-g-9"><h1>Création d'un nouveau client</h1></div>
         </div>
 
         <div>
             <div style="margin-bottom: 11px">
-                <span>Nom</span><br>
-                <input pInputText>
+                <div><span>Nom</span></div>
+                <div class="ui-inputgroup">
+                    <span class="ui-inputgroup-addon">$</span>
+                    <input pInputText formControlName="nom">
+                </div>
+            </div>
+
+            <div style="margin-bottom: 11px">
+                <div><span>Prénom</span></div>
+                <div class="ui-inputgroup">
+                    <span class="ui-inputgroup-addon">$</span>
+                    <input pInputText formControlName="prenom">
+                </div>
             </div>
             <div style="margin-bottom: 11px">
-                <span>Prénom</span><br>
-                <input pInputText>
+                <div><span>Email</span></div>
+                <div class="ui-inputgroup">
+                    <span class="ui-inputgroup-addon">$</span>
+                    <input pInputText formControlName="email">
+                </div>
             </div>
             <div style="margin-bottom: 11px">
-                <span>Email</span><br>
-                <input pInputText>
+                <div><span>Téléphone</span></div>
+                <div class="ui-inputgroup">
+                    <span class="ui-inputgroup-addon">$</span>
+                    <input pInputText formControlName="telephone">
+                </div>
             </div>
             <div style="margin-bottom: 11px">
-                <span>Téléphone</span><br>
-                <input pInputText>
+                <div><span>Pays</span></div>
+                <div class="ui-inputgroup">
+                    <span class="ui-inputgroup-addon">$</span>
+                    <p-dropdown></p-dropdown>
+                </div>
             </div>
             <div style="margin-bottom: 11px">
-                <span>Pays</span><br>
-                <p-dropdown></p-dropdown>
+                <div><span>Code postal</span></div>
+                <div class="ui-inputgroup">
+                    <span class="ui-inputgroup-addon">$</span>
+                    <input pInputText>
+                </div>
             </div>
             <div style="margin-bottom: 11px">
-                <span>Code postal</span><br>
-                <input pInputText>
+                <div><span>Ville</span></div>
+                <div class="ui-inputgroup">
+                    <span class="ui-inputgroup-addon">$</span>
+                    <input pInputText>
+                </div>
             </div>
             <div style="margin-bottom: 11px">
-                <span>Ville</span><br>
-                <input pInputText>
-            </div>
-            <div style="margin-bottom: 11px">
-                <span>Rue</span><br>
-                <input pInputText>
+                <div><span>Rue</span></div>
+                <div class="ui-inputgroup">
+                    <span class="ui-inputgroup-addon">$</span>
+                    <input pInputText>
+                </div>
             </div>
 
             <div style="margin-top: 15px">
