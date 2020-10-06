@@ -2,22 +2,20 @@
 -->
 <div>
     <ng-template [ngIf]="!isOpenLikeDialog">
-        <div style="margin-bottom: 9px">
-            <p-breadcrumb [model]="breadcrumbItems" [home]="{icon: 'fa fa-home'}"
-                          [style]="{'boder': '0px'}"></p-breadcrumb>
-        </div>
+        <app-breadcrumb [breadcrumbItems]="breadcrumbItems"></app-breadcrumb>
     </ng-template>
 
 
     <div class="card card-w-title">
         <ng-template [ngIf]="!isOpenLikeDialog">
-            <div class="ui-g">
-                <div class="ui-g-9"><h1>Liste des clients</h1></div>
-
-                <div class="ui-g-3">
+            <div class="p-grid p-ai-center vertical-container">
+                <div class="p-col-9"><h1>Liste des clients</h1></div>
+                <div class="p-col-3 small-screen-hide">
                     <p-button label="Créer un nouveau client" icon="pi pi-plus"
-                              [routerLink]="['/clients/creer']">
-                    </p-button>
+                              [routerLink]="['/clients/creer']"></p-button>
+                </div>
+                <div class="p-col-3 big-screen-hide">
+                    <p-button icon="pi pi-plus" [routerLink]="['/clients/creer']"></p-button>
                 </div>
             </div>
         </ng-template>
@@ -27,7 +25,7 @@
                 <ng-template let-client pTemplate="listItem">
                     <div class="p-col-12">
                         <div class="p-grid p-ai-center vertical-container">
-                            <div class="p-col-9">
+                            <div class="p-col-12 p-md-9">
                                 <div>
                                 <span
                                     style="display: block; font-size: 18px; font-weight: bold">{{ client.prenom }} {{ client.nom }}</span>
@@ -46,15 +44,19 @@
                                 </div>
                             </div>
 
-                            <div class="p-col-3">
+                            <div class="p-md-3">
                                 <ng-template [ngIf]="!isOpenLikeDialog">
-                                    <button pButton label="Modifier" icon="fa fa-pencil" style="margin-right: 7px"
-                                            class="ui-button ui-button-warning"></button>
-                                    <button pButton label="Supprimer" icon="fa fa-trash"
-                                            class="ui-button ui-button-danger"></button>
+                                    <div class="small-screen-hide">
+                                        <button pButton label="Modifier" icon="fa fa-pencil" style="margin-right: 7px"
+                                                class="ui-button ui-button-warning"></button>
+                                        <button pButton label="Supprimer" icon="fa fa-trash"
+                                                class="ui-button ui-button-danger"></button>
+                                    </div>
+
                                 </ng-template>
                                 <ng-template [ngIf]="isOpenLikeDialog">
-                                    <button pButton label="Selectionner" icon="pi pi-arrow-down" (click)="selectClient(client)">
+                                    <button pButton label="Selectionner" icon="pi pi-arrow-down"
+                                            (click)="selectClient(client)">
                                     </button>
                                 </ng-template>
 
