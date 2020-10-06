@@ -1,9 +1,9 @@
+import {Adresse} from "./adresse";
 
 export interface Personne {
     nom ?: string;
     prenom ?: string;
-    pays ?: string;
-    adresse ?: string;
+    adresse ?: Adresse;
     telephone ?: string;
     email ?: string;
 }
