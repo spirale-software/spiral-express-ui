@@ -3,32 +3,45 @@
 <div>
 
     <div class="card card-w-title">
-        <div>
+        <div class="p-grid p-align-center">
+            <div class="p-col-10"><span style="font-size: 18px; font-weight: bold">Liste des dstinataires du client: Symbol Koki</span></div>
+            <div class="p-col-3 small-screen-hide">
+                <p-button label="Créer un nouveau client" icon="pi pi-plus"
+                          [routerLink]="['/clients/creer']"></p-button>
+            </div>
+            <div class="p-col-2 big-screen-hide">
+                <p-button icon="pi pi-plus" [routerLink]="['/clients/creer']"></p-button>
+            </div>
+        </div>
+
+        <div style="margin-top: 11px">
             <p-dataView #dv [value]="destinataires" [paginator]="true" [rows]="10" paginatorPosition="bottom">
-                <ng-template let-client pTemplate="listItem">
-                    <div class="p-col-12">
+                <ng-template let-destinataire pTemplate="listItem">
+                    <div class="p-col-12" (click)="navigate(destinataire)">
                         <div class="p-grid p-ai-center vertical-container">
-                            <div class="p-col-9">
+                            <div class="p-col-12 p-md-9">
                                 <div>
                                 <span
-                                    style="display: block; font-size: 18px; font-weight: bold">{{ client.prenom }} {{ client.nom }}</span>
+                                    style="display: block; font-size: 18px; font-weight: bold">{{ destinataire.prenom }} {{ destinataire.nom }}</span>
                                     <div>
                                     <span
-                                        style="display: inline-block; padding: 7px 0px; padding-right: 11px">Tel: <strong>{{ client.telephone }}</strong></span>
+                                        style="display: inline-block; padding: 7px 0px; padding-right: 11px">Tel: <strong>{{ destinataire.telephone }}</strong></span>
                                         <span
-                                            style="display: inline-block; padding: 7px 0px; padding-right: 11px">Email: <strong>{{ client.email }}</strong></span>
+                                            style="display: inline-block; padding: 7px 0px; padding-right: 11px">Email: <strong>{{ destinataire.email }}</strong></span>
                                     </div>
                                     <div>
                                     <span
-                                        style="display: inline-block; padding: 7px 0px; padding-right: 11px">Pays: <strong>{{ client.pays }}</strong></span>
-                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Adresse: <strong>{{ client.adresse }}</strong></span>
+                                        style="display: inline-block; padding: 7px 0px; padding-right: 11px">Pays: <strong>{{ destinataire.pays }}</strong></span>
+                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Adresse: <strong>{{ destinataire.adresse }}</strong></span>
                                     </div>
 
                                 </div>
                             </div>
 
-                            <div class="p-col-3">
-                                    <button pButton label="Selectionner" icon="pi pi-arrow-down" (click)="selectPartenaire(client)">
+                            <div class="p-md-3">
+
+                                    <button pButton label="Selectionner" icon="pi pi-arrow-down" class="small-screen-hide"
+                                            (click)="selectPartenaire(destinataire)">
                                     </button>
                             </div>
                         </div>

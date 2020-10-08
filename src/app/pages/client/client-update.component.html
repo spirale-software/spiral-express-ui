@@ -4,15 +4,13 @@
     <app-breadcrumb [breadcrumbItems]="breadcrumbItems"></app-breadcrumb>
 
     <div class="card card-w-title main-content" [formGroup]="clientForm">
-        <div class="ui-g">
-            <div class="ui-g-9"><h1>Création d'un nouveau client</h1></div>
-        </div>
+        <h1>Création d'un nouveau client</h1>
 
         <div>
             <div style="margin-bottom: 11px">
                 <div><span>Nom</span></div>
                 <div class="ui-inputgroup">
-                    <span class="ui-inputgroup-addon">$</span>
+                    <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
                     <input pInputText formControlName="nom">
                 </div>
             </div>
@@ -20,50 +18,50 @@
             <div style="margin-bottom: 11px">
                 <div><span>Prénom</span></div>
                 <div class="ui-inputgroup">
-                    <span class="ui-inputgroup-addon">$</span>
+                    <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
                     <input pInputText formControlName="prenom">
                 </div>
             </div>
             <div style="margin-bottom: 11px">
                 <div><span>Email</span></div>
                 <div class="ui-inputgroup">
-                    <span class="ui-inputgroup-addon">$</span>
+                    <span class="ui-inputgroup-addon"><i class="fa fa-envelope-square"></i></span>
                     <input pInputText formControlName="email">
                 </div>
             </div>
             <div style="margin-bottom: 11px">
                 <div><span>Téléphone</span></div>
                 <div class="ui-inputgroup">
-                    <span class="ui-inputgroup-addon">$</span>
+                    <span class="ui-inputgroup-addon"><i class="fa fa-phone"></i></span>
                     <input pInputText formControlName="telephone">
                 </div>
             </div>
             <div style="margin-bottom: 11px">
                 <div><span>Pays</span></div>
                 <div class="ui-inputgroup">
-                    <span class="ui-inputgroup-addon">$</span>
-                    <p-dropdown></p-dropdown>
+                    <span class="ui-inputgroup-addon"><i class="fa fa-flag"></i></span>
+                    <p-dropdown [formControl]="clientForm.get('adresse').get('pays')"></p-dropdown>
                 </div>
             </div>
             <div style="margin-bottom: 11px">
                 <div><span>Code postal</span></div>
                 <div class="ui-inputgroup">
-                    <span class="ui-inputgroup-addon">$</span>
-                    <input pInputText>
+                    <span class="ui-inputgroup-addon"><i class="fa fa-map-marker"></i></span>
+                    <input pInputText [formControl]="clientForm.get('adresse').get('codePostal')">
                 </div>
             </div>
             <div style="margin-bottom: 11px">
                 <div><span>Ville</span></div>
                 <div class="ui-inputgroup">
-                    <span class="ui-inputgroup-addon">$</span>
-                    <input pInputText>
+                    <span class="ui-inputgroup-addon"><i class="fa fa-building"></i></span>
+                    <input pInputText [formControl]="clientForm.get('adresse').get('ville')">
                 </div>
             </div>
             <div style="margin-bottom: 11px">
                 <div><span>Rue</span></div>
                 <div class="ui-inputgroup">
-                    <span class="ui-inputgroup-addon">$</span>
-                    <input pInputText>
+                    <span class="ui-inputgroup-addon"><i class="fa fa-street-view"></i></span>
+                    <input pInputText [formControl]="clientForm.get('adresse').get('rue')">
                 </div>
             </div>
 
