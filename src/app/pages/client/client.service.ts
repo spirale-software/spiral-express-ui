@@ -24,4 +24,8 @@ export class ClientService {
     findById(clientId: number): Observable<any> {
         return this.http.get(this.url, {observe: 'response'});
     }
+
+    deleteById(clientId: number): Observable<any> {
+        return this.http.delete(this.url);
+    }
 }

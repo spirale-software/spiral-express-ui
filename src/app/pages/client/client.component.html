@@ -1,10 +1,11 @@
 <!--
 -->
 <div>
+    <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+
     <ng-template [ngIf]="!isOpenLikeDialog">
         <app-breadcrumb [breadcrumbItems]="breadcrumbItems"></app-breadcrumb>
     </ng-template>
-
 
     <div class="card card-w-title main-content">
         <ng-template [ngIf]="!isOpenLikeDialog">
@@ -37,8 +38,8 @@
                                     </div>
                                     <div>
                                     <span
-                                        style="display: inline-block; padding: 7px 0px; padding-right: 11px">Pays: <strong>{{ client.pays }}</strong></span>
-                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Adresse: <strong>{{ client.adresse }}</strong></span>
+                                        style="display: inline-block; padding: 7px 0px; padding-right: 11px">Pays: <strong>{{ client.adresse.pays }}</strong></span>
+                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Ville: <strong>{{ client.adresse.ville }}</strong></span>
                                     </div>
 
                                 </div>
@@ -46,16 +47,17 @@
 
                             <div class="p-md-3">
                                 <ng-template [ngIf]="!isOpenLikeDialog">
-                                    <div class="small-screen-hide">
-                                        <button pButton label="Modifier" icon="fa fa-pencil" style="margin-right: 7px"
-                                                class="ui-button ui-button-warning"></button>
-                                        <button pButton label="Supprimer" icon="fa fa-trash"
-                                                class="ui-button ui-button-danger"></button>
-                                    </div>
                                     <div>
-                                        <button pButton label="Liste des destinataires" icon="fa fa-users" routerLink="/destinataires"></button>
-                                    </div>
+                                        <button pButton label="Destinataires" icon="fa fa-users" routerLink="/destinataires" style="margin-right: 7px"></button>
 
+                                        <button pButton label="Modifier" icon="fa fa-pencil" style="margin-right: 7px"
+                                                class="ui-button ui-button-warning small-screen-hide"
+                                                [routerLink]="['/clients', client.id, 'modifier']"></button>
+
+                                        <button pButton label="Supprimer" icon="fa fa-trash"
+                                                class="ui-button ui-button-danger small-screen-hide"
+                                                (click)="confirmerSuppression(client)"></button>
+                                    </div>
                                 </ng-template>
                                 <ng-template [ngIf]="isOpenLikeDialog">
                                     <button pButton label="Selectionner" icon="pi pi-arrow-down"

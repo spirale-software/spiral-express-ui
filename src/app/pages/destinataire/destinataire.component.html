@@ -4,10 +4,9 @@
 
     <div class="card card-w-title">
         <div class="p-grid p-align-center">
-            <div class="p-col-10"><span style="font-size: 18px; font-weight: bold">Liste des destinataires du client: Symbol Koki</span></div>
+            <div class="p-col-9"><span style="font-size: 18px; font-weight: bold">Liste des destinataires du client: Symbol Koki</span></div>
             <div class="p-col-3 small-screen-hide">
-                <p-button label="Créer un nouveau client" icon="pi pi-plus"
-                          [routerLink]="['/clients/creer']"></p-button>
+                <p-button label="Nouveau destinataire" icon="pi pi-plus" (click)="openDialog()"></p-button>
             </div>
             <div class="p-col-2 big-screen-hide">
                 <p-button icon="pi pi-plus" [routerLink]="['/clients/creer']"></p-button>
@@ -39,10 +38,14 @@
                             </div>
 
                             <div class="p-md-3">
-
-                                    <button pButton label="Selectionner" icon="pi pi-arrow-down" class="small-screen-hide"
-                                            (click)="selectPartenaire(destinataire)">
-                                    </button>
+                                <button pButton label="Modifier" icon="fa fa-pencil" style="margin-right: 7px"
+                                        class="ui-button ui-button-warning small-screen-hide"
+                                       (click)="openDialog(destinataire)"></button>
+                                    <ng-template [ngIf]="isOpenLikeDialog">
+                                        <button pButton label="Selectionner" icon="pi pi-arrow-down" class="small-screen-hide"
+                                                (click)="selectPartenaire(destinataire)">
+                                        </button>
+                                    </ng-template>
                             </div>
                         </div>
                         <hr size="1px" align="left" color="#d9dad9">
@@ -50,6 +53,11 @@
                 </ng-template>
 
             </p-dataView>
+        </div>
+        <div style="margin-top: 15px">
+            <button pButton label="Retour" class="ui-button-secondary" style="margin-right: 7px"
+                    icon="fa fa-chevron-left" (click)="back()">
+            </button>
         </div>
     </div>
 </div>
