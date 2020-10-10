@@ -1,7 +1,9 @@
 <div class="topbar">
     <a routerLink="/" class="topbar-logo">
 <!--        <img [src]="app.layout === 'default' ? 'assets/layout/images/logo-black.png' : 'assets/layout/images/logo-white.png'" style="border: 0 none">-->
-        <span style="font-size: 25px; color: white;">SPIRAL-EXPRESS</span>
+
+        <span class="company-title" style="color: white; display: inline-block; padding: 10px 0px">SPIRAL-EXPRESS</span>
+
     </a>
 
     <a href="#" id="menu-button" (click)="app.onMenuButtonClick($event)">
@@ -10,7 +12,7 @@
 
     <a href="#" id="user-display" (click)="app.onTopbarMenuButtonClick($event)">
         <span class="username">Gérard Yannick</span>
-        <span style="width: 100px; height: 100px">
+        <span style="width: 200px; height: 200px;">
             <i class="fa fa-user-circle-o"></i>
         </span>
 
