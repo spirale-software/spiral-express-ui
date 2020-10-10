@@ -13,11 +13,11 @@
             </div>
         </div>
 
-        <div style="margin-top: 11px">
+        <div>
             <p-dataView #dv [value]="destinataires" [paginator]="true" [rows]="10" paginatorPosition="bottom">
                 <ng-template let-destinataire pTemplate="listItem">
                     <div class="p-col-12" (click)="navigate(destinataire)">
-                        <div class="p-grid p-ai-center vertical-container">
+                        <div class="p-grid p-align-center" (click)="navigate(destinataire)">
                             <div class="p-col-12 p-md-9">
                                 <div>
                                 <span
@@ -29,11 +29,13 @@
                                             style="display: inline-block; padding: 7px 0px; padding-right: 11px">Email: <strong>{{ destinataire.email }}</strong></span>
                                     </div>
                                     <div>
-                                    <span
-                                        style="display: inline-block; padding: 7px 0px; padding-right: 11px">Pays: <strong>{{ destinataire.pays }}</strong></span>
-                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Adresse: <strong>{{ destinataire.adresse }}</strong></span>
+                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Pays:
+                                            <strong>{{ destinataire.pays }}</strong>
+                                        </span>
+                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Adresse:
+                                            <strong>{{ destinataire.adresse }}</strong>
+                                        </span>
                                     </div>
-
                                 </div>
                             </div>
 

@@ -61,10 +61,21 @@
         </div>
 
         <div style="margin-top: 15px">
-            <button pButton label="Quitter" class="ui-button-secondary" style="margin-right: 7px"
-                    icon="fa fa-times" (click)="closeDialog()">
-            </button>
-            <button pButton label="Enregistrer" icon="fa fa-save" (click)="closeDialog()"></button>
+            <ng-template [ngIf]="isOpenLikePopup">
+                <button pButton label="Quitter" class="ui-button-secondary" style="margin-right: 7px"
+                        icon="fa fa-times" (click)="closeDialog()">
+                </button>
+            </ng-template>
+
+
+            <button pButton label="Enregistrer" icon="fa fa-save" (click)="closeDialog()" style="margin-right: 7px"></button>
+
+            <ng-template [ngIf]="!isOpenLikePopup">
+                <button pButton label="Supprimer" icon="fa fa-trash"
+                        class="ui-button ui-button-danger big-screen-hide"
+                        (click)="confirmerSuppression()"></button>
+            </ng-template>
+
         </div>
 
     </div>

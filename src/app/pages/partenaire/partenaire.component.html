@@ -6,9 +6,15 @@
     </div>
 
     <div class="card card-w-title">
-        <div class="ui-g">
-            <div class="ui-g-9"><h1>Liste de mes partenaires</h1></div>
-            <div class="ui-g-3"><p-button label="Créer un nouveau partenaire" icon="pi pi-plus" [routerLink]="['/clients/creer']"></p-button></div>
+        <div class="p-grid p-align-center">
+            <div class="p-col-9"><span style="font-size: 21px; font-weight: bold">Liste des partenaires</span></div>
+            <div class="p-col-3 small-screen-hide">
+                <p-button label="Créer un nouveau client" icon="pi pi-plus"
+                          [routerLink]="['/partenaires/creer']"></p-button>
+            </div>
+            <div class="p-col-3 big-screen-hide">
+                <p-button icon="pi pi-plus" [routerLink]="['/partenaires/creer']"></p-button>
+            </div>
         </div>
 
         <div>

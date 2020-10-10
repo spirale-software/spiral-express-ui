@@ -1,4 +1,4 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit, Optional} from "@angular/core";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {DynamicDialogRef} from "primeng";
 
@@ -10,8 +10,15 @@ export class PersonneUpdateComponent implements OnInit {
 
     personneForm: FormGroup;
 
-    constructor(private fb: FormBuilder, private ref: DynamicDialogRef) {
+    isOpenLikePopup = false;
+
+    constructor(private fb: FormBuilder,
+                @Optional() private ref: DynamicDialogRef) {
         this.initForm();
+
+        if (ref) {
+            this.isOpenLikePopup = true;
+        }
     }
 
     ngOnInit(): void {
@@ -35,5 +42,9 @@ export class PersonneUpdateComponent implements OnInit {
     closeDialog(): void {
         this.ref.close();
     }
+
+    confirmerSuppression() {
+    }
 }
+
 
