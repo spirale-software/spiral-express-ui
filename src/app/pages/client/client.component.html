@@ -25,7 +25,7 @@
             <p-dataView #dv [value]="clients" [paginator]="true" [rows]="10" paginatorPosition="bottom">
                 <ng-template let-client pTemplate="listItem">
                     <div class="p-col-12">
-                        <div class="p-grid p-ai-center vertical-container">
+                        <div class="p-grid p-ai-center">
                             <div class="p-col-12 p-md-9" (click)="showUpdate(client)">
                                 <div>
                                 <span
