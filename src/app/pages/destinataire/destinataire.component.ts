@@ -1,6 +1,6 @@
-import {Component, Optional} from "@angular/core";
+import {Component, OnInit, Optional} from "@angular/core";
 import {DialogService, DynamicDialogRef} from "primeng";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {PersonneUpdateComponent} from "../shared/component/personne/personne-update.component";
 
 @Component({
@@ -8,13 +8,16 @@ import {PersonneUpdateComponent} from "../shared/component/personne/personne-upd
     templateUrl: './destinataire.component.html',
     providers: [DialogService]
 })
-export class DestinataireComponent {
+export class DestinataireComponent implements OnInit {
 
     destinataires: any[];
 
     isOpenLikeDialog = false;
 
-    constructor(@Optional() private ref: DynamicDialogRef, private router: Router, private dialogService: DialogService) {
+    client: any;
+
+    constructor(@Optional() private ref: DynamicDialogRef, private router: Router, private dialogService: DialogService,
+                private route: ActivatedRoute) {
         this.destinataires = [
             {id: 1, nom: 'Gérard', prenom: 'Yannick', telephone: '045888888', email: 'contact@lapiemo.com', pays: 'Cameroun', adresse: 'Douala Bassa'},
             {id: 2, nom: 'Symbol', prenom: 'Yvano', telephone: '045888888', email: 'contact@lapiemo.com', pays: 'Tchad', adresse: 'Djamena Lac'},
@@ -24,6 +27,11 @@ export class DestinataireComponent {
         if (this.ref) {
             this.isOpenLikeDialog = true;
         }
+
+        this.client = this.router.getCurrentNavigation().extras.state;
+    }
+
+    ngOnInit(): void {
     }
 
     selectPartenaire(partenaire): void {

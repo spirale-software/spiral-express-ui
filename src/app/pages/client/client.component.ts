@@ -1,5 +1,5 @@
 import {Component, OnInit, Optional} from "@angular/core";
-import {ConfirmationService, DynamicDialogConfig, DynamicDialogRef, MenuItem} from "primeng";
+import {ConfirmationService, DynamicDialogRef, MenuItem} from "primeng";
 import {ClientService} from "./client.service";
 import {Router} from "@angular/router";
 
@@ -49,6 +49,11 @@ export class ClientComponent implements OnInit {
             acceptLabel: 'Oui',
             rejectLabel: 'Non'
         });
+    }
+
+    navigateTo(client): void {
+        this.router.navigate(['/clients', client.id, 'destinataires'], {state: client});
+
     }
 }
 

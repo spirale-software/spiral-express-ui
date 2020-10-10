@@ -48,7 +48,8 @@
                             <div class="p-md-3">
                                 <ng-template [ngIf]="!isOpenLikeDialog">
                                     <div>
-                                        <button pButton label="Destinataires" icon="fa fa-users" routerLink="/destinataires" style="margin-right: 7px"></button>
+                                        <button pButton label="Destinataires" icon="fa fa-users"
+                                                (click)="navigateTo(client)" style="margin-right: 7px"></button>
 
                                         <button pButton label="Modifier" icon="fa fa-pencil" style="margin-right: 7px"
                                                 class="ui-button ui-button-warning small-screen-hide"
