@@ -1,11 +1,12 @@
 import {Component, OnInit} from "@angular/core";
-import {MenuItem} from "primeng";
+import {ConfirmationService, MenuItem} from "primeng";
 import {ClientService} from "./client.service";
 import {FormBuilder, FormGroup} from "@angular/forms";
 
 @Component({
     selector: 'app-client-update',
-    templateUrl: './client-update.component.html'
+    templateUrl: './client-update.component.html',
+    providers: [ConfirmationService]
 })
 export class ClientUpdateComponent implements OnInit {
 
@@ -13,13 +14,16 @@ export class ClientUpdateComponent implements OnInit {
 
     clientForm: FormGroup;
 
-    constructor(private clientService: ClientService, private fb: FormBuilder) {
+    client: any;
+
+    constructor(private clientService: ClientService, private fb: FormBuilder, private confirmationService: ConfirmationService) {
 
         this.breadcrumbItems = [];
         this.breadcrumbItems.push({label: 'Clients'});
         this.breadcrumbItems.push({label: 'créer nouveau client'});
 
         this.initForm();
+        this.client = {};
     }
 
     ngOnInit(): void {
@@ -46,5 +50,14 @@ export class ClientUpdateComponent implements OnInit {
 
     enregistrer(): void {
         console.log('clientForm.value: ', this.clientForm.value);
+    }
+
+    confirmerSuppression() {
+        this.confirmationService.confirm({
+            message: 'Voulez vous vraiment supprimer le client: ' +  this.client.nom,
+            accept: () => this.clientService.deleteById(this.client.id).subscribe(),
+            acceptLabel: 'Oui',
+            rejectLabel: 'Non'
+        });
     }
 }
