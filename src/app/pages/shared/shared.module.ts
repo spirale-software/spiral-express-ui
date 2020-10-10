@@ -7,9 +7,10 @@ import {ZXingScannerModule} from '@zxing/ngx-scanner';
 import {CommonModule} from "@angular/common";
 import {BreadcrumbComponent} from "./component/breadcrumb/breadcrumb.component";
 import {PersonneUpdateComponent} from "./component/personne/personne-update.component";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
-    imports: [PrimengLibModule, ZXingScannerModule, CommonModule],
+    imports: [PrimengLibModule, ZXingScannerModule, CommonModule, ReactiveFormsModule],
     exports: [
         ButtonGroupComponent,
         ScannerDocumentComponent,

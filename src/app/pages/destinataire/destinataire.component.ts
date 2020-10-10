@@ -34,7 +34,8 @@ export class DestinataireComponent {
     navigate(destinataire): void {
         console.log('window.innerWidth: ', window.innerWidth);
         if (window.innerWidth < 650) {
-            this.router.navigate(['destinataires', destinataire.id, 'modifier']);
+            this.openDialog();
+            // this.router.navigate(['destinataires', destinataire.id, 'modifier']);
         }
     }
 

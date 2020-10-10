@@ -26,7 +26,7 @@
                 <ng-template let-client pTemplate="listItem">
                     <div class="p-col-12">
                         <div class="p-grid p-ai-center vertical-container">
-                            <div class="p-col-12 p-md-9">
+                            <div class="p-col-12 p-md-9" (click)="showUpdate(client)">
                                 <div>
                                 <span
                                     style="display: block; font-size: 18px; font-weight: bold">{{ client.prenom }} {{ client.nom }}</span>

@@ -1,6 +1,7 @@
 import {Component, OnInit, Optional} from "@angular/core";
 import {ConfirmationService, DynamicDialogConfig, DynamicDialogRef, MenuItem} from "primeng";
 import {ClientService} from "./client.service";
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-client',
@@ -17,7 +18,7 @@ export class ClientComponent implements OnInit {
 
     constructor(private clientService: ClientService,
                 @Optional() private ref: DynamicDialogRef,
-                private confirmationService: ConfirmationService) {
+                private confirmationService: ConfirmationService, private router: Router) {
         this.breadcrumbItems = [];
         this.breadcrumbItems.push({label: 'Clients'});
         this.clients = [
@@ -33,6 +34,12 @@ export class ClientComponent implements OnInit {
 
     selectClient(client) {
         this.ref.close(client);
+    }
+
+    showUpdate(client) {
+        if (window.innerWidth <= 650) {
+            this.router.navigate(['/clients', client.id, 'modifier']);
+        }
     }
 
     confirmerSuppression(client) {
