@@ -34,8 +34,7 @@ export class DestinataireComponent {
     navigate(destinataire): void {
         console.log('window.innerWidth: ', window.innerWidth);
         if (window.innerWidth < 650) {
-            this.openDialog();
-            // this.router.navigate(['destinataires', destinataire.id, 'modifier']);
+            this.openDialog(destinataire);
         }
     }
 
@@ -44,6 +43,12 @@ export class DestinataireComponent {
     }
 
     openDialog(destinataire ?: any) {
-        const ref = this.dialogService.open(PersonneUpdateComponent, {header: 'Nouveau destinataires'});
+        let header;
+        if (destinataire) {
+            header = 'Editer un destinataire';
+        } else {
+            header = 'Nouveau destinataire';
+        }
+        const ref = this.dialogService.open(PersonneUpdateComponent, {header});
     }
 }
