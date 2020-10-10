@@ -4,7 +4,11 @@
 
     <div class="card card-w-title">
         <div class="p-grid p-align-center">
-            <div class="p-col-9"><span style="font-size: 18px; font-weight: bold">Liste des destinataires du client: Symbol Koki</span></div>
+            <div class="p-col-9">
+                <span style="font-size: 18px;">Liste des destinataires du client:
+                    <span style="font-style: italic; text-decoration: underline; font-weight: bold">Toutankamon</span>
+                </span>
+            </div>
             <div class="p-col-3 small-screen-hide">
                 <p-button label="Nouveau destinataire" icon="pi pi-plus" (click)="openDialog()"></p-button>
             </div>
@@ -42,12 +46,13 @@
                             <div class="p-md-3">
                                 <button pButton label="Modifier" icon="fa fa-pencil" style="margin-right: 7px"
                                         class="ui-button ui-button-warning small-screen-hide"
-                                       (click)="openDialog(destinataire)"></button>
-                                    <ng-template [ngIf]="isOpenLikeDialog">
-                                        <button pButton label="Selectionner" icon="pi pi-arrow-down" class="small-screen-hide"
-                                                (click)="selectPartenaire(destinataire)">
-                                        </button>
-                                    </ng-template>
+                                        (click)="openDialog(destinataire)"></button>
+                                <ng-template [ngIf]="isOpenLikeDialog">
+                                    <button pButton label="Selectionner" icon="pi pi-arrow-down"
+                                            class="small-screen-hide"
+                                            (click)="selectPartenaire(destinataire)">
+                                    </button>
+                                </ng-template>
                             </div>
                         </div>
                         <hr size="1px" align="left" color="#d9dad9">

@@ -1,7 +1,6 @@
 import {Component, Optional} from "@angular/core";
-import {DialogService, DynamicDialogConfig, DynamicDialogRef} from "primeng";
+import {DialogService, DynamicDialogRef} from "primeng";
 import {Router} from "@angular/router";
-import {ClientUpdateComponent} from "../client/client-update.component";
 import {PersonneUpdateComponent} from "../shared/component/personne/personne-update.component";
 
 @Component({
