@@ -2,14 +2,10 @@
 -->
 <div>
 
-    <div style="margin-bottom: 9px">
-        <p-breadcrumb [model]="breadcrumbItems" [home]="{icon: 'fa fa-home'}"></p-breadcrumb>
-    </div>
+    <app-breadcrumb [breadcrumbItems]="breadcrumbItems"></app-breadcrumb>
 
     <div class="card card-w-title">
-        <div class="ui-g">
-            <div class="ui-g-9"><h1>Encoder le rapport de quai d'un coli</h1></div>
-        </div>
+        <h1>Encoder le rapport de quai d'un coli</h1>
 
         <div>
             <app-scanner-document (scanSuccess)="onScanSuccess($event)"></app-scanner-document>
