@@ -17,7 +17,7 @@
             <p-dataView #dv [value]="destinataires" [paginator]="true" [rows]="10" paginatorPosition="bottom">
                 <ng-template let-destinataire pTemplate="listItem">
                     <div class="p-col-12" (click)="navigate(destinataire)">
-                        <div class="p-grid p-align-center row-item" (click)="navigate(destinataire)">
+                        <div class="p-grid p-align-center row-item">
                             <div class="p-col-12 p-md-9">
                                 <div>
                                 <span
