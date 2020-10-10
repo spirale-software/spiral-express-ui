@@ -1,4 +1,8 @@
 import {Component} from "@angular/core";
+import {Coli} from "../shared/model/coli";
+import {Utils} from "../shared/util/utils";
+import {Client} from "../shared/model/client";
+import {Envoi} from "../shared/model/envoi";
 
 @Component({
     selector: 'app-tableau-de-bord',
@@ -6,23 +10,21 @@ import {Component} from "@angular/core";
 })
 export class TableauDeBordComponent {
 
-    envois: any[];
+    envois: Envoi[];
 
     constructor() {
-        this.envois = [
-            {
-                etatColi: 'En Cours',
-                dateEnvoi: '10/10/2020',
-                emetteur: 'Yannick',
-                volumeColi: '0.33',
-                destinataire: 'Jules Lefranc',
-                paysExpedition: 'Belgique',
-                paysDestination: 'Rwanda',
-                villeDestination: 'Kigali',
-                adresseDestination: 'Kigali centre',
-                montantTotalTransaction: 50.00
-            },
+        this.envois = [];
+    }
 
-        ];
+    getVolume(coli: Coli): number {
+        return Utils.getVolume(coli);
+    }
+
+    getExpediteur(expediteur: Client): string {
+        return Utils.getExpediteur(expediteur);
+    }
+
+    getPaysExpedition(expediteur): string{
+        return null;
     }
 }

@@ -4,6 +4,7 @@ import {EnvoiService} from './envoi.service';
 import {Envoi} from '../shared/model/envoi';
 import {Coli} from '../shared/model/coli';
 import {Client} from '../shared/model/client';
+import {Utils} from "../shared/util/utils";
 
 @Component({
     selector: 'app-envoi',
@@ -45,19 +46,11 @@ export class EnvoiComponent implements OnInit {
     }
 
     getVolume(coli: Coli): number {
-        let volume = 0;
-        if (coli) {
-            volume = coli.longueur * coli.largeur * coli.hauteur;
-        }
-        return volume;
+        return Utils.getVolume(coli);
     }
 
     getExpediteur(expediteur: Client): string {
-        let expediteurNom = '';
-        if (expediteur) {
-            expediteurNom = expediteur.prenom + ' ' + expediteur.nom;
-        }
-        return expediteurNom;
+        return Utils.getExpediteur(expediteur);
     }
 
     getPaysExpedition(expediteur: Client): string {
