@@ -5,6 +5,7 @@ import {Envoi} from '../shared/model/envoi';
 import {Coli} from '../shared/model/coli';
 import {Client} from '../shared/model/client';
 import {Utils} from "../shared/util/utils";
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-envoi',
@@ -17,25 +18,10 @@ export class EnvoiComponent implements OnInit {
 
     envois: Envoi[];
 
-    constructor(private envoiService: EnvoiService) {
+    constructor(private envoiService: EnvoiService, private router: Router) {
         this.breadcrumbItems = [];
         this.breadcrumbItems.push({label: 'envois de coli'});
         this.envois = [];
-/*        this.envois = [
-            {
-                etatColi: 'En Cours',
-                dateEnvoi: '10/10/2020',
-                emetteur: 'Yannick',
-                volumeColi: '0.33',
-                destinataire: 'Jules Lefranc',
-                paysExpedition: 'Belgique',
-                paysDestination: 'Rwanda',
-                villeDestination: 'Kigali',
-                adresseDestination: 'Kigali centre',
-                montantTotalTransaction: 50.00
-            },
-
-        ];*/
     }
 
     ngOnInit(): void {
@@ -49,17 +35,21 @@ export class EnvoiComponent implements OnInit {
         return Utils.getVolume(coli);
     }
 
+    navigateTo(envoi): void {
+        if (window.innerWidth <= 650) {
+            this.router.navigate(['/envois', envoi.id, 'modifier']);
+        }
+    }
+
     getExpediteur(expediteur: Client): string {
         return Utils.getExpediteur(expediteur);
     }
 
     getPaysExpedition(expediteur: Client): string {
         if (expediteur) {
-            // return expediteur.pays;
-            return 'TODO';
+            return expediteur.adresse.pays;
         }
         return null;
-
     }
 
     genererDocument(envoiId: null): void {

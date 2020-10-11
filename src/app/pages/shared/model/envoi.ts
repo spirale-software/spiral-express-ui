@@ -4,6 +4,7 @@ import {Personne} from './personne';
 import {StatutEnvoi} from './statut-envoi';
 
 export interface Envoi {
+    id ?: number;
     dateCreation ?: any;
     statut ?: StatutEnvoi;
     reference ?: string;
@@ -12,4 +13,5 @@ export interface Envoi {
     destinataire ?: Personne;
     rapportQuai ?: string;
     rapportLivraisaon ?: string;
+    montant ?: number;
 }

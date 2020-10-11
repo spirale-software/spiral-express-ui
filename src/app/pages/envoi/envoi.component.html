@@ -15,30 +15,30 @@
                 <ng-template let-envoi pTemplate="listItem">
                     <div class="p-col-12">
                         <div class="p-grid p-ai-center vertical-container">
-                            <div class="p-col-12 p-md-8">
+                            <div class="p-col-12 p-md-8" (click)="navigateTo(envoi)">
                                 <div>
                                     <div class="p-grid p-ai-center vertical-container">
                                         <div class="p-col">
                                             <span style="display: inline-block; font-size: 18px; font-weight: bold;">{{ envoi.reference }} </span>
                                         </div>
                                         <div class="p-col">
-                                            <span style="background-color: #FBBC05; border-radius: 50%; color: white; padding: 7px 11px;">{{ 'Pris en charge' }}</span>
+                                            <span style="background-color: #FBBC05; border-radius: 50%; color: white; padding: 7px 11px;">{{ envoi.statut }}</span>
                                         </div>
                                     </div>
                                     <div>
-                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Volume: <strong>{{ getVolume(envoi.coli) }} m³</strong></span>
-                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Poids: <strong>{{ envoi.coli.poids }} kg</strong></span>
-                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Montant payé: <strong>{{ envoi.montant }} EUR</strong></span>
+                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px"><i class="fa fa-dot-circle-o"></i> Volume: <strong>{{ getVolume(envoi.coli) }} m³</strong></span>
+                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px"><i class="fa fa-dot-circle-o"></i> Poids: <strong>{{ envoi.coli.poids }} kg</strong></span>
+                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px"><i class="fa fa-euro"></i> Montant payé: <strong>{{ envoi.montant }} EUR</strong></span>
                                     </div>
                                     <div>
-                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Expéditeur: <strong>{{ getExpediteur(envoi.expediteur) }}</strong></span>
-                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Pays expédition: <strong>{{ getPaysExpedition(envoi.expediteur) }}</strong></span>
+                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px"><i class="fa fa-user"></i> Expéditeur: <strong>{{ getExpediteur(envoi.expediteur) }}</strong></span>
+                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px"><i class="fa fa-flag"></i> Pays expédition: <strong>{{ getPaysExpedition(envoi.expediteur) }}</strong></span>
                                     </div>
                                     <div>
-                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Destinataire: <strong>{{ envoi?.destinataire?.nom }}</strong></span>
-                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Pays de destination: <strong>{{ envoi?.destinataire?.pays }}</strong></span>
-                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Ville de destination: <strong>{{ envoi?.destinataire?.ville }}</strong></span>
-                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Adresse de destination: <strong>{{ envoi?.destinataire?.adresse }}</strong></span>
+                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px"><i class="fa fa-user"></i> Destinataire: <strong>{{ envoi?.destinataire?.prenom }} {{ envoi?.destinataire?.nom }}</strong></span>
+                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px"><i class="fa fa-flag"></i> Pays de destination: <strong>{{ envoi?.destinataire?.adresse.pays }}</strong></span>
+                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px"><i class="fa fa-building"></i> Ville de destination: <strong>{{ envoi?.destinataire?.adresse.ville }}</strong></span>
+<!--                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Adresse de destination: <strong>{{ envoi?.destinataire?.adresse.adresse }}</strong></span>-->
                                     </div>
 
                                 </div>
