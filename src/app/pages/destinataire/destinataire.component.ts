@@ -61,6 +61,6 @@ export class DestinataireComponent implements OnInit {
         } else {
             header = 'Nouveau destinataire';
         }
-        const ref = this.dialogService.open(PersonneUpdateComponent, {header});
+        const ref = this.dialogService.open(PersonneUpdateComponent, {header, width: '75%'});
     }
 }
