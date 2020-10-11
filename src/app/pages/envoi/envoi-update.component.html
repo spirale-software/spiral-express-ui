@@ -1,7 +1,7 @@
 <!--
 -->
 
-<p-dialog header="Détail de l'envoi" [(visible)]="displayEnvoiDetail || displayPersonneDetail" [modal]="true" (onHide)="navigateTo()">
+<p-dialog header="Détail de l'envoi" [(visible)]="displayEnvoiDetail || displayPersonneDetail || displayExpediteurs || displayDestinataires" [modal]="true" [style]="{'width':'90%'}">
 
     <ng-template [ngIf]="displayEnvoiDetail">
         <app-envoi-detail></app-envoi-detail>
@@ -9,11 +9,17 @@
     <ng-template [ngIf]="displayPersonneDetail">
         <app-personne-detail></app-personne-detail>
     </ng-template>
+    <ng-template [ngIf]="displayExpediteurs">
+        <app-personne-select></app-personne-select>
+    </ng-template>
+    <ng-template [ngIf]="displayDestinataires">
+        <app-personne-select></app-personne-select>
+    </ng-template>
 
     <p-footer>
         <div>
             <button pButton label="Quitter" class="ui-button-secondary" style="margin-right: 7px"
-                    icon="fa fa-times" (click)="displayEnvoiDetail=false;displayPersonneDetail=false">
+                    icon="fa fa-times" (click)="displayEnvoiDetail=false;displayPersonneDetail=false;displayExpediteurs=false;displayDestinataires=false">
             </button>
             <ng-template [ngIf]="displayEnvoiDetail">
                 <button pButton label="Valider cet envoi" icon="fa fa-save" (click)="validerEnvoi()"></button>

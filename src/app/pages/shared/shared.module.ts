@@ -8,6 +8,7 @@ import {CommonModule} from "@angular/common";
 import {BreadcrumbComponent} from "./component/breadcrumb/breadcrumb.component";
 import {PersonneUpdateComponent} from "./component/personne/personne-update.component";
 import {ReactiveFormsModule} from "@angular/forms";
+import {PersonneSelectComponent} from "./component/personne/personne-select.component";
 
 @NgModule({
     imports: [PrimengLibModule, ZXingScannerModule, CommonModule, ReactiveFormsModule],
@@ -16,10 +17,11 @@ import {ReactiveFormsModule} from "@angular/forms";
         ScannerDocumentComponent,
         PersonneDetailComponent,
         BreadcrumbComponent,
-        PersonneUpdateComponent
+        PersonneUpdateComponent,
+        PersonneSelectComponent
     ],
     declarations: [ButtonGroupComponent, ScannerDocumentComponent, PersonneDetailComponent, BreadcrumbComponent,
-        PersonneUpdateComponent]
+        PersonneUpdateComponent, PersonneSelectComponent]
 })
 export class SharedModule {
 }

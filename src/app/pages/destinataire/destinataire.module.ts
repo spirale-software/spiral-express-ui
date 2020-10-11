@@ -8,7 +8,9 @@ import {PersonneUpdateComponent} from "../shared/component/personne/personne-upd
 
 @NgModule({
     imports: [PrimengLibModule, SharedModule, CommonModule],
-    exports: [],
+    exports: [
+        DestinataireComponent
+    ],
     entryComponents: [PersonneUpdateComponent],
     declarations: [DestinataireComponent, DestinataireUpdateComponent]
 })

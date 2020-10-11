@@ -23,6 +23,10 @@ export class EnvoiUpdateComponent {
 
     displayPersonneDetail = false;
 
+    displayExpediteurs = false;
+
+    displayDestinataires = false;
+
     envoi: Envoi;
 
     envoiForm: FormGroup;
@@ -59,30 +63,33 @@ export class EnvoiUpdateComponent {
     }
 
     onSearchExpediteurClicked(): void {
-        const ref = this.dialogService.open(ClientComponent, {
-            header: 'Sélectionner un expéditeur'
-        });
-
-        ref.onClose.subscribe(client => {
-            if (client) {
-                this.expediteurSelectionner = client;
-                this.envoiForm.get('expediteur').setValue(client.prenom);
-            }
-        });
+        this.displayExpediteurs = true;
+        // const ref = this.dialogService.open(ClientComponent, {
+        //     header: 'Sélectionner un expéditeur'
+        // });
+        //
+        // ref.onClose.subscribe(client => {
+        //     if (client) {
+        //         this.expediteurSelectionner = client;
+        //         this.envoiForm.get('expediteur').setValue(client.prenom);
+        //     }
+        // });
     }
 
     onSearchDestinataireClicked(): void {
-        const header = `Liste des destinataires liés au client: ${this.expediteurSelectionner.nom} ${this.expediteurSelectionner.prenom}`;
-        const ref = this.dialogService.open(DestinataireComponent, {
-            header,
-        });
+        this.displayDestinataires = true;
 
-        ref.onClose.subscribe((destinataire: Personne) => {
-            if (destinataire) {
-                this.destinataireSelectionner = destinataire;
-                this.envoiForm.get('destinataire').setValue(destinataire.prenom);
-            }
-        });
+        // const header = `Liste des destinataires liés au client: ${this.expediteurSelectionner.nom} ${this.expediteurSelectionner.prenom}`;
+        // const ref = this.dialogService.open(DestinataireComponent, {
+        //     header,
+        // });
+        //
+        // ref.onClose.subscribe((destinataire: Personne) => {
+        //     if (destinataire) {
+        //         this.destinataireSelectionner = destinataire;
+        //         this.envoiForm.get('destinataire').setValue(destinataire.prenom);
+        //     }
+        // });
     }
 
     validerEnvoi(): void {
