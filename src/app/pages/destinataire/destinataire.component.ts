@@ -39,8 +39,8 @@ export class DestinataireComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    selectPartenaire(partenaire): void {
-        this.ref.close(partenaire);
+    selectDestinataire(destinataire): void {
+        this.ref.close(destinataire);
     }
 
     navigate(destinataire): void {
