@@ -27,6 +27,8 @@ export class EnvoiUpdateComponent {
 
     displayDestinataires = false;
 
+    displayPartenaires = false;
+
     envoi: Envoi;
 
     envoiForm: FormGroup;
@@ -40,6 +42,8 @@ export class EnvoiUpdateComponent {
     volume: number;
 
     poidsVolumetrique: number;
+
+    isVisible = false;
 
     constructor(public dialogService: DialogService, private router: Router, private fb: FormBuilder, private envoiService: EnvoiService) {
         this.breadcrumbItems = [];
@@ -63,6 +67,7 @@ export class EnvoiUpdateComponent {
     }
 
     onSearchExpediteurClicked(): void {
+        this.isVisible = true;
         this.displayExpediteurs = true;
         // const ref = this.dialogService.open(ClientComponent, {
         //     header: 'Sélectionner un expéditeur'
@@ -76,7 +81,27 @@ export class EnvoiUpdateComponent {
         // });
     }
 
+    onSearchPartenaireClicked() {
+        this.isVisible = true;
+        this.displayPartenaires = true;
+
+    }
+
+    voirDetailPartenaire() {
+
+    }
+
+    closeDialog() {
+        this.isVisible = false;
+        this.displayEnvoiDetail = false;
+        this.displayPersonneDetail = false;
+        this.displayExpediteurs = false;
+        this.displayDestinataires = false;
+        this.displayPartenaires = false;
+    }
+
     onSearchDestinataireClicked(): void {
+        this.isVisible = true;
         this.displayDestinataires = true;
 
         // const header = `Liste des destinataires liés au client: ${this.expediteurSelectionner.nom} ${this.expediteurSelectionner.prenom}`;

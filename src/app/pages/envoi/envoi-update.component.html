@@ -1,7 +1,7 @@
 <!--
 -->
 
-<p-dialog header="Détail de l'envoi" [(visible)]="displayEnvoiDetail || displayPersonneDetail || displayExpediteurs || displayDestinataires" [modal]="true" [style]="{'width':'90%'}">
+<p-dialog header="Détail de l'envoi" [(visible)]="isVisible" [modal]="true" [style]="{'width':'90%'}">
 
     <ng-template [ngIf]="displayEnvoiDetail">
         <app-envoi-detail></app-envoi-detail>
@@ -15,11 +15,14 @@
     <ng-template [ngIf]="displayDestinataires">
         <app-personne-select></app-personne-select>
     </ng-template>
+    <ng-template [ngIf]="displayPartenaires">
+        <app-personne-select></app-personne-select>
+    </ng-template>
 
     <p-footer>
         <div>
             <button pButton label="Quitter" class="ui-button-secondary" style="margin-right: 7px"
-                    icon="fa fa-times" (click)="displayEnvoiDetail=false;displayPersonneDetail=false;displayExpediteurs=false;displayDestinataires=false">
+                    icon="fa fa-times" (click)="closeDialog()">
             </button>
             <ng-template [ngIf]="displayEnvoiDetail">
                 <button pButton label="Valider cet envoi" icon="fa fa-save" (click)="validerEnvoi()"></button>
@@ -167,8 +170,23 @@
             </div>
             </div>
 
+            <div style="margin-top: 11px">
+                <span>Partenaire</span>
+                <hr size="1px" width="70%" align="left" color="#d9dad9">
+                <div style="margin-top: 15px"><span>Partenaire réceptioniste du coli</span></div>
+                <div class="p-inputgroup">
+                    <input type="text" pInputText formControlName="expediteur">
+                    <button type="button" pButton pRipple icon="pi pi-search" styleClass="p-button-danger"
+                            (click)="onSearchPartenaireClicked()">
+                    </button>
+                    <button type="button" pButton pRipple icon="pi pi-eye" style="background-color: #00ffff"
+                            (click)="voirDetailPartenaire()">
+                    </button>
+                </div>
+            </div>
 
-            <div style="margin-top: 31px">
+
+            <div style="margin-top: 35px">
                 <div class="ui-fluid">Montant total à payer pour cet envoi</div>
                 <div class="ui-inputgroup">
                     <input type="text" pInputText placeholder="Prix" formControlName="montant">
