@@ -3,6 +3,14 @@
 <div>
     <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
 
+    <p-dialog [(visible)]="isLoading" [modal]="true" [closable]="false">
+            <p-progressSpinner [style]="{width: '50px', height: '50px'}" strokeWidth="8" fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
+    </p-dialog>
+
+    <p-toast></p-toast>
+
+
+
     <ng-template [ngIf]="!isOpenLikeDialog">
         <app-breadcrumb [breadcrumbItems]="breadcrumbItems"></app-breadcrumb>
     </ng-template>
@@ -22,7 +30,7 @@
         </ng-template>
 
         <div>
-            <p-dataView #dv [value]="clients" [paginator]="true" [rows]="10" paginatorPosition="bottom">
+            <p-dataView #dv [value]="clients" [paginator]="true" [rows]="10" paginatorPosition="bottom" emptyMessage="Aucun résultat">
                 <ng-template let-client pTemplate="listItem">
                     <div class="p-col-12">
                         <div class="p-grid p-ai-center">
