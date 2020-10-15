@@ -15,8 +15,8 @@
                 <ng-template let-envoi pTemplate="listItem">
                     <div class="p-col-12">
                         <div class="p-grid p-ai-center vertical-container">
-                            <div class="p-col-12 p-md-8" (click)="navigateTo(envoi)">
-                                <div>
+                            <div class="p-col-12 p-md-8" >
+                                <div (click)="navigateTo(envoi)">
                                     <div class="p-grid p-ai-center vertical-container">
                                         <div class="p-col">
                                             <span style="display: inline-block; font-size: 18px; font-weight: bold;">{{ envoi.reference }} </span>
@@ -40,8 +40,9 @@
                                         <span style="display: inline-block; padding: 7px 0px; padding-right: 11px"><i class="fa fa-building"></i> Ville de destination: <strong>{{ envoi?.destinataire?.adresse.ville }}</strong></span>
 <!--                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Adresse de destination: <strong>{{ envoi?.destinataire?.adresse.adresse }}</strong></span>-->
                                     </div>
-
                                 </div>
+                                <button pButton label="Imprimer" icon="pi pi-file-pdf" style="margin-right: 7px" class="big-screen-hide"
+                                        (click)="genererDocument(envoi.id)"></button>
                             </div>
 
                             <div class="p-md-4 small-screen-hide">
