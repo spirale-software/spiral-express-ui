@@ -35,7 +35,7 @@
             <div><span>Pays</span></div>
             <div class="ui-inputgroup">
                 <span class="ui-inputgroup-addon"><i class="fa fa-flag"></i></span>
-                <p-dropdown [formControl]="personneForm.get('adresse').get('pays')"></p-dropdown>
+                <p-dropdown [formControl]="personneForm.get('adresse').get('pays')" [options]="paysOptions"></p-dropdown>
             </div>
         </div>
         <div style="margin-bottom: 11px">

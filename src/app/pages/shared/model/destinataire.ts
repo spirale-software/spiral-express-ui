@@ -1,4 +1,6 @@
+import {Personne} from './personne';
+import {Client} from './client';
 
-export interface Destinataire {
-
+export interface Destinataire extends Personne {
+    client ?: Client;
 }

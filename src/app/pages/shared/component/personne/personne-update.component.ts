@@ -1,6 +1,7 @@
-import {Component, OnInit, Optional} from "@angular/core";
-import {FormBuilder, FormGroup} from "@angular/forms";
-import {DynamicDialogRef} from "primeng";
+import {Component, OnInit, Optional} from '@angular/core';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {DynamicDialogRef, SelectItem} from 'primeng';
+import {Utils} from '../../util/utils';
 
 @Component({
     selector: 'app-personne-update',
@@ -12,6 +13,8 @@ export class PersonneUpdateComponent implements OnInit {
 
     isOpenLikePopup = false;
 
+    paysOptions: SelectItem[];
+
     constructor(private fb: FormBuilder,
                 @Optional() private ref: DynamicDialogRef) {
         this.initForm();
@@ -19,6 +22,7 @@ export class PersonneUpdateComponent implements OnInit {
         if (ref) {
             this.isOpenLikePopup = true;
         }
+        this.paysOptions = Utils.getPaysOptions();
     }
 
     ngOnInit(): void {

@@ -36,12 +36,12 @@ export class DestinataireComponent implements OnInit {
             this.isOpenLikeDialog = true;
         }
 
-        this.client = this.router.getCurrentNavigation().extras.state;
+        // this.client = this.router.getCurrentNavigation().extras.state;
     }
 
     ngOnInit(): void {
         const clientId = this.route.snapshot.paramMap.get('clientId');
-        this.destinataireService.findAllByClientId(Number(clientId)).subscribe(res => {});
+        this.destinataireService.findAllByClientId(Number(clientId)).subscribe(res => {console.log(res); });
     }
 
     selectDestinataire(destinataire): void {
