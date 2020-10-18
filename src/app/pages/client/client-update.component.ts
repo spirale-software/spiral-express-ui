@@ -1,7 +1,9 @@
 import {Component, OnInit} from "@angular/core";
-import {ConfirmationService, MenuItem} from "primeng";
+import {ConfirmationService, MenuItem, SelectItem} from "primeng";
 import {ClientService} from "./client.service";
 import {FormBuilder, FormGroup} from "@angular/forms";
+import {Utils} from "../shared/util/utils";
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-client-update',
@@ -16,7 +18,10 @@ export class ClientUpdateComponent implements OnInit {
 
     client: any;
 
-    constructor(private clientService: ClientService, private fb: FormBuilder, private confirmationService: ConfirmationService) {
+    paysOptions: SelectItem[];
+
+    constructor(private clientService: ClientService, private fb: FormBuilder,
+                private confirmationService: ConfirmationService, private router: Router) {
 
         this.breadcrumbItems = [];
         this.breadcrumbItems.push({label: 'Clients'});
@@ -24,6 +29,7 @@ export class ClientUpdateComponent implements OnInit {
 
         this.initForm();
         this.client = {};
+        this.paysOptions = Utils.getPaysOptions();
     }
 
     ngOnInit(): void {
@@ -50,6 +56,12 @@ export class ClientUpdateComponent implements OnInit {
 
     enregistrer(): void {
         console.log('clientForm.value: ', this.clientForm.value);
+        this.client = Object.assign(this.client, this.clientForm.value);
+        this.clientService.create(this.client).subscribe(
+            res => { this.router.navigate(['/clients']); },
+            error => {});
+        // console.log('client: ', this.client);
+
     }
 
     confirmerSuppression() {
