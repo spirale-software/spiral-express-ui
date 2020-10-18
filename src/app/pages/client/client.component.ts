@@ -65,7 +65,7 @@ export class ClientComponent implements OnInit {
     }
 
     navigateTo(client): void {
-        this.router.navigate(['/clients', client.id, 'destinataires'], {state: client});
+        this.router.navigate(['/destinataires/clients', client.id], {state: client});
 
     }
 }
