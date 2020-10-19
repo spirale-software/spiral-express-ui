@@ -1,7 +1,8 @@
-import {Component, EventEmitter, OnInit, Optional} from '@angular/core';
+import {Component, EventEmitter, OnInit, Optional, Output} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {DynamicDialogRef, SelectItem} from 'primeng';
 import {Utils} from '../../util/utils';
+import {Personne} from "../../model/personne";
 
 @Component({
     selector: 'app-personne-update',
@@ -14,6 +15,8 @@ export class PersonneUpdateComponent implements OnInit {
     isOpenLikePopup = false;
 
     paysOptions: SelectItem[];
+
+    @Output() onSaveClicked = new EventEmitter<Personne>();
 
     constructor(private fb: FormBuilder,
                 @Optional() private ref: DynamicDialogRef) {
@@ -44,7 +47,10 @@ export class PersonneUpdateComponent implements OnInit {
     }
 
     onSaveCliked(): void {
-        this.ref.close(this.personneForm.value);
+        if (this.ref) {
+            this.ref.close(this.personneForm.value);
+        }
+        this.onSaveClicked.emit(this.personneForm.value);
     }
 
     closeDialog(): void {
