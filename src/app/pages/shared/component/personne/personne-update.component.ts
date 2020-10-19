@@ -1,4 +1,4 @@
-import {Component, OnInit, Optional} from '@angular/core';
+import {Component, EventEmitter, OnInit, Optional} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {DynamicDialogRef, SelectItem} from 'primeng';
 import {Utils} from '../../util/utils';
@@ -41,6 +41,10 @@ export class PersonneUpdateComponent implements OnInit {
                 ville: []
             })
         });
+    }
+
+    onSaveCliked(): void {
+        this.ref.close(this.personneForm.value);
     }
 
     closeDialog(): void {

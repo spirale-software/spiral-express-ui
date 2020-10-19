@@ -3,6 +3,8 @@ import {DialogService, DynamicDialogRef, MenuItem} from "primeng";
 import {ActivatedRoute, Router} from "@angular/router";
 import {PersonneUpdateComponent} from "../shared/component/personne/personne-update.component";
 import {DestinataireService} from "./destinataire.service";
+import {Destinataire} from "../shared/model/destinataire";
+import {Client} from "../shared/model/client";
 
 @Component({
     selector: 'app-destinataire',
@@ -11,13 +13,15 @@ import {DestinataireService} from "./destinataire.service";
 })
 export class DestinataireComponent implements OnInit {
 
-    destinataires: any[];
+    destinataires: Destinataire[];
 
     isOpenLikeDialog = false;
 
     breadcrumbItems: MenuItem[];
 
     client: any;
+
+    clientId: number;
 
     constructor(@Optional() private ref: DynamicDialogRef, private router: Router,
                 private dialogService: DialogService,
@@ -26,22 +30,25 @@ export class DestinataireComponent implements OnInit {
         this.breadcrumbItems = [];
         this.breadcrumbItems.push({label: 'destinaires du client'});
 
-        // this.destinataires = [
-        //     {id: 1, nom: 'Gérard', prenom: 'Yannick', telephone: '045888888', email: 'contact@lapiemo.com', pays: 'Cameroun', adresse: 'Douala Bassa'},
-        //     {id: 2, nom: 'Symbol', prenom: 'Yvano', telephone: '045888888', email: 'contact@lapiemo.com', pays: 'Tchad', adresse: 'Djamena Lac'},
-        //     {id: 3, nom: 'Stephen', prenom: 'Gustave', telephone: '00336989521', email: 'gustave@gmail.com', pays: 'Senegal', adresse: 'Dakar Centre'},
-        // ];
-
         if (this.ref) {
             this.isOpenLikeDialog = true;
         }
 
         // this.client = this.router.getCurrentNavigation().extras.state;
+        this.clientId = Number(this.route.snapshot.paramMap.get('clientId'));
     }
 
     ngOnInit(): void {
-        const clientId = this.route.snapshot.paramMap.get('clientId');
-        this.destinataireService.findAllByClientId(Number(clientId)).subscribe(res => {console.log(res); });
+        this.destinataireService.findAllByClientId(this.clientId).subscribe(res => {
+            this.destinataires = res.body;
+            this.setClient();
+        });
+    }
+
+    setClient() {
+        if (this.destinataires.length > 0) {
+            this.client = this.destinataires[0].client;
+        }
     }
 
     selectDestinataire(destinataire): void {
@@ -67,5 +74,21 @@ export class DestinataireComponent implements OnInit {
             header = 'Nouveau destinataire';
         }
         const ref = this.dialogService.open(PersonneUpdateComponent, {header, width: '75%'});
+
+        ref.onClose.subscribe(res => {
+           if (res) {
+               const destinataire: Destinataire = Object.assign({}, res);
+               console.log('destinataire: ', destinataire);
+               destinataire.client = {} as Client;
+               destinataire.client.id = this.clientId;
+               this.destinataireService.create(destinataire).subscribe(() => {
+                   this.destinataireService.findAllByClientId(this.clientId).subscribe(res => {
+                       this.destinataires = res.body;
+                       this.setClient();
+                   });
+               });
+               console.log('openDialog: ', res);
+           }
+        });
     }
 }
