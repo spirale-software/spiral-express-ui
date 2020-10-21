@@ -2,6 +2,7 @@ import {Component, OnInit, Optional} from "@angular/core";
 import {DynamicDialogRef, MenuItem} from "primeng";
 import {Router} from "@angular/router";
 import {Partenaire} from "../shared/model/partenaire";
+import {PartenaireService} from "./partenaire.service";
 
 @Component({
     selector: 'app-partenaire',
@@ -15,7 +16,8 @@ export class PartenaireComponent implements OnInit {
 
     isOpenLikeDialog = false;
 
-    constructor(private router: Router, @Optional() private ref: DynamicDialogRef ) {
+    constructor(private router: Router, @Optional() private ref: DynamicDialogRef,
+                private partenaireService: PartenaireService) {
         this.breadcrumbItems = [];
         this.breadcrumbItems.push({label: 'Partenaires'});
         /*this.partenaires = [
@@ -30,6 +32,7 @@ export class PartenaireComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        this.partenaireService.findAll().subscribe(res => this.partenaires = res.body);
     }
 
     showUpdate(partenaire): void {

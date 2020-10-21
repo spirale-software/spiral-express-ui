@@ -23,17 +23,17 @@
                             <div class="p-col-12 p-md-9" (click)="showUpdate(partenaire)">
                                 <div>
                                 <span
-                                    style="display: block; font-size: 18px; font-weight: bold">{{ partenaire.prenom }} {{ partenaire.nom }}</span>
+                                    style="display: block; font-size: 18px; font-weight: bold">{{ partenaire?.prenom }} {{ partenaire?.nom }}</span>
                                     <div>
                                     <span
-                                        style="display: inline-block; padding: 7px 0px; padding-right: 11px">Tel: <strong>{{ partenaire.telephone }}</strong></span>
+                                        style="display: inline-block; padding: 7px 0px; padding-right: 11px">Tel: <strong>{{ partenaire?.telephone }}</strong></span>
                                         <span
-                                            style="display: inline-block; padding: 7px 0px; padding-right: 11px">Email: <strong>{{ partenaire.email }}</strong></span>
+                                            style="display: inline-block; padding: 7px 0px; padding-right: 11px">Email: <strong>{{ partenaire?.email }}</strong></span>
                                     </div>
                                     <div>
                                     <span
-                                        style="display: inline-block; padding: 7px 0px; padding-right: 11px">Pays: <strong>{{ partenaire.adresse.pays }}</strong></span>
-                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Ville: <strong>{{ partenaire.adresse.ville }}</strong></span>
+                                        style="display: inline-block; padding: 7px 0px; padding-right: 11px">Pays: <strong>{{ partenaire?.adresse?.pays }}</strong></span>
+                                        <span style="display: inline-block; padding: 7px 0px; padding-right: 11px">Ville: <strong>{{ partenaire?.adresse?.ville }}</strong></span>
                                     </div>
 
                                 </div>
