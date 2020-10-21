@@ -9,6 +9,7 @@ import {DestinataireComponent} from "../destinataire/destinataire.component";
 import {Coli} from "../shared/model/coli";
 import {EnvoiService} from "./envoi.service";
 import {Personne} from "../shared/model/personne";
+import {Partenaire} from "../shared/model/partenaire";
 
 @Component({
     selector: 'app-envoi',
@@ -84,7 +85,13 @@ export class EnvoiUpdateComponent {
     onSearchPartenaireClicked() {
         this.isVisible = true;
         this.displayPartenaires = true;
+    }
 
+    onPartenaireSelect(partenaire: Partenaire) {
+       this.closeDialog();
+
+       const fullName = partenaire.prenom + ' ' + partenaire.prenom;
+       this.envoiForm.get('partenaire').setValue(fullName);
     }
 
     voirDetailPartenaire() {
@@ -101,8 +108,8 @@ export class EnvoiUpdateComponent {
     }
 
     onSearchDestinataireClicked(): void {
-        this.isVisible = true;
-        this.displayDestinataires = true;
+        /*this.isVisible = true;
+        this.displayDestinataires = true;*/
 
         // const header = `Liste des destinataires liés au client: ${this.expediteurSelectionner.nom} ${this.expediteurSelectionner.prenom}`;
         // const ref = this.dialogService.open(DestinataireComponent, {
@@ -151,6 +158,7 @@ export class EnvoiUpdateComponent {
             }),
             expediteur: [],
             destinataire: [],
+            partenaire: [],
             rapportQuai: [],
             rapportLivraison: [],
             montant: []

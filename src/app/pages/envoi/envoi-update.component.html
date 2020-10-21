@@ -16,7 +16,7 @@
         <app-personne-select></app-personne-select>
     </ng-template>
     <ng-template [ngIf]="displayPartenaires">
-        <app-personne-select></app-personne-select>
+        <app-personne-select [isPartenaire]="true" (onSelect)="onPartenaireSelect($event)"></app-personne-select>
     </ng-template>
 
     <p-footer>
@@ -175,7 +175,7 @@
                 <hr size="1px" width="70%" align="left" color="#d9dad9">
                 <div style="margin-top: 15px"><span>Partenaire réceptioniste du coli</span></div>
                 <div class="p-inputgroup">
-                    <input type="text" pInputText formControlName="expediteur">
+                    <input type="text" pInputText formControlName="partenaire">
                     <button type="button" pButton pRipple icon="pi pi-search" styleClass="p-button-danger"
                             (click)="onSearchPartenaireClicked()">
                     </button>

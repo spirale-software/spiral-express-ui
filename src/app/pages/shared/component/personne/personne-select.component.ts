@@ -1,4 +1,5 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, EventEmitter, Input, OnInit, Output} from "@angular/core";
+import {PartenaireService} from "../../../partenaire/partenaire.service";
 
 @Component({
     selector: 'app-personne-select',
@@ -6,9 +7,13 @@ import {Component, OnInit} from "@angular/core";
 })
 export class PersonneSelectComponent implements OnInit {
 
+    @Input() isPartenaire = false;
+
     personnes: any[];
 
-    constructor() {
+    @Output() onSelect = new EventEmitter<any>();
+
+    constructor(private partenaireService: PartenaireService) {
         this.personnes = [
             {id: 1, nom: 'Gérard', prenom: 'Yannick', telephone: '045888888', email: 'contact@lapiemo.com', adresse: {pays: 'Cameroun', ville: 'Douala Bassa'}},
             {id: 2, nom: 'Symbol', prenom: 'Yvano', telephone: '045888888', email: 'contact@lapiemo.com', adresse: {pays: 'Tchad', ville: 'Djamena Lac'}},
@@ -17,9 +22,12 @@ export class PersonneSelectComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        if (this.isPartenaire) {
+            this.partenaireService.findAll().subscribe(res => this.personnes = res.body);
+        }
     }
 
     selectPersonne(personne) {
-
+        this.onSelect.emit(personne);
     }
 }
