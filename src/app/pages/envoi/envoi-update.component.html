@@ -43,19 +43,23 @@
         </div>
 
         <div style="margin-bottom: 35px">
+            <div style="margin-bottom: 21px" *ngIf="envoi && envoi.reference">
+                <span style="font-weight: bold; font-size: 18px"> {{ envoi?.reference }} </span>
+            </div>
+
             <div class="p-grid" style="margin-bottom: 15px">
-                <div class="p-col p-md-2">
+                <div class="p-col">
                     <span style="display: block">Date</span>
                     <span>{{ currentDate }}</span>
                 </div>
-                <div class="p-col p-md-2">
+                <div class="p-col">
                     <span style="display: block">Statut</span>
                     <span>Pris en charge</span>
                 </div>
-                <div class="p-col p-md-2">
-                    <span style="display: block">Référence</span>
-                    <span>3345567899</span>
-                </div>
+<!--                <div class="p-col p-md-2">-->
+<!--                    <span style="display: block">Référence</span>-->
+<!--                    <span>3345567899</span>-->
+<!--                </div>-->
             </div>
 
             <!--[Coli]-->

@@ -1,21 +1,18 @@
 import {Component} from '@angular/core';
-import {DialogService, MenuItem} from 'primeng';
+import {MenuItem} from 'primeng';
 import {Router} from '@angular/router';
-import {ClientComponent} from '../client/client.component';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {Envoi} from '../shared/model/envoi';
-import {Client} from "../shared/model/client";
-import {DestinataireComponent} from "../destinataire/destinataire.component";
-import {Coli} from "../shared/model/coli";
-import {EnvoiService} from "./envoi.service";
-import {Personne} from "../shared/model/personne";
-import {Partenaire} from "../shared/model/partenaire";
-import {Destinataire} from "../shared/model/destinataire";
+import {Client} from '../shared/model/client';
+import {Coli} from '../shared/model/coli';
+import {EnvoiService} from './envoi.service';
+import {Personne} from '../shared/model/personne';
+import {Partenaire} from '../shared/model/partenaire';
+import {Destinataire} from '../shared/model/destinataire';
 
 @Component({
     selector: 'app-envoi',
-    templateUrl: './envoi-update.component.html',
-    providers: [DialogService]
+    templateUrl: './envoi-update.component.html'
 })
 export class EnvoiUpdateComponent {
 
@@ -49,16 +46,22 @@ export class EnvoiUpdateComponent {
 
     expediteur: Client;
 
-    titreDialog = "Détail de l'envoi";
+    destinataire: Destinataire;
 
-    constructor(public dialogService: DialogService, private router: Router, private fb: FormBuilder, private envoiService: EnvoiService) {
+    partenaire: Partenaire;
+
+    titreDialog = `Détail de l'envoi`;
+
+    constructor(private router: Router, private fb: FormBuilder, private envoiService: EnvoiService) {
         this.breadcrumbItems = [];
         this.breadcrumbItems.push({label: 'envois de coli'});
         this.breadcrumbItems.push({label: 'encodage nouvel envoi'});
         this.initEnvoiForm();
+        this.envoi = {} as Envoi;
 
         const myDate = new Date();
         this.currentDate = `${myDate.getDate()}/${myDate.getUTCMonth() + 1}/${myDate.getFullYear()}`;
+        this.envoi.dateCreation = myDate;
 
         this.volume = 0;
         this.poidsVolumetrique = 0;
@@ -73,6 +76,8 @@ export class EnvoiUpdateComponent {
         this.displayEnvoiDetail = true;
 
         this.envoi = Object.assign({}, this.envoiForm.value);
+        this.envoi.destinataire = this.destinataire;
+        this.envoi.expediteur = this.expediteur;
         console.log('envoi: ', this.envoi);
     }
 
@@ -90,6 +95,7 @@ export class EnvoiUpdateComponent {
 
     onPartenaireSelect(partenaire: Partenaire) {
        this.closeDialog();
+       this.partenaire = partenaire;
 
        const fullName = partenaire.prenom + ' ' + partenaire.prenom;
        this.envoiForm.get('partenaire').setValue(fullName);
@@ -105,6 +111,7 @@ export class EnvoiUpdateComponent {
 
     onDestinataireSelect(destinataire: Destinataire) {
         this.closeDialog();
+        this.destinataire = destinataire;
 
         const fullName = destinataire.prenom + ' ' + destinataire.prenom;
         this.envoiForm.get('destinataire').setValue(fullName);
