@@ -1,4 +1,4 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, Input, OnInit} from "@angular/core";
 import {MenuItem} from "primeng";
 import {ActivatedRoute} from "@angular/router";
 import {Envoi} from "../shared/model/envoi";
@@ -6,13 +6,16 @@ import {EnvoiService} from "./envoi.service";
 
 @Component({
     selector: 'app-envoi-detail',
-    templateUrl: './envoi-detail.component.html'
+    templateUrl: './envoi-detail.component.html',
+    styles: ['.nom-label{display: block; font-weight: bold }']
 })
 export class EnvoiDetailComponent implements OnInit {
 
     breadcrumbItems: MenuItem[];
 
-    envoi: Envoi;
+    @Input() envoi: Envoi;
+
+    @Input() isOpenLikeDialog = false;
 
     constructor(private route: ActivatedRoute, private envoiService: EnvoiService) {
         this.breadcrumbItems = [];
@@ -22,8 +25,9 @@ export class EnvoiDetailComponent implements OnInit {
 
     ngOnInit(): void {
         const envoiId = this.route.snapshot.paramMap.get('id');
-        this.setEnvoi(Number(envoiId));
-        console.log(envoiId);
+        if (envoiId) {
+            this.setEnvoi(Number(envoiId));
+        }
     }
 
     setEnvoi(envoiId: number): void {

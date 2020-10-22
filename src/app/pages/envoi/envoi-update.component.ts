@@ -71,6 +71,9 @@ export class EnvoiUpdateComponent {
     onValiderClicked(): void {
         this.isVisible = true;
         this.displayEnvoiDetail = true;
+
+        this.envoi = Object.assign({}, this.envoiForm.value);
+        console.log('envoi: ', this.envoi);
     }
 
     onSearchExpediteurClicked(): void {
