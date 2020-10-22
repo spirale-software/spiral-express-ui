@@ -10,6 +10,7 @@ import {Coli} from "../shared/model/coli";
 import {EnvoiService} from "./envoi.service";
 import {Personne} from "../shared/model/personne";
 import {Partenaire} from "../shared/model/partenaire";
+import {Destinataire} from "../shared/model/destinataire";
 
 @Component({
     selector: 'app-envoi',
@@ -46,6 +47,8 @@ export class EnvoiUpdateComponent {
 
     isVisible = false;
 
+    expediteur: Client;
+
     constructor(public dialogService: DialogService, private router: Router, private fb: FormBuilder, private envoiService: EnvoiService) {
         this.breadcrumbItems = [];
         this.breadcrumbItems.push({label: 'envois de coli'});
@@ -70,16 +73,6 @@ export class EnvoiUpdateComponent {
     onSearchExpediteurClicked(): void {
         this.isVisible = true;
         this.displayExpediteurs = true;
-        // const ref = this.dialogService.open(ClientComponent, {
-        //     header: 'Sélectionner un expéditeur'
-        // });
-        //
-        // ref.onClose.subscribe(client => {
-        //     if (client) {
-        //         this.expediteurSelectionner = client;
-        //         this.envoiForm.get('expediteur').setValue(client.prenom);
-        //     }
-        // });
     }
 
     onSearchPartenaireClicked() {
@@ -92,6 +85,21 @@ export class EnvoiUpdateComponent {
 
        const fullName = partenaire.prenom + ' ' + partenaire.prenom;
        this.envoiForm.get('partenaire').setValue(fullName);
+    }
+
+    onExpediteurSelect(expediteur: Client) {
+        this.closeDialog();
+        this.expediteur = expediteur;
+
+        const fullName = expediteur.prenom + ' ' + expediteur.prenom;
+        this.envoiForm.get('expediteur').setValue(fullName);
+    }
+
+    onDestinataireSelect(destinataire: Destinataire) {
+        this.closeDialog();
+
+        const fullName = destinataire.prenom + ' ' + destinataire.prenom;
+        this.envoiForm.get('destinataire').setValue(fullName);
     }
 
     voirDetailPartenaire() {
@@ -108,20 +116,8 @@ export class EnvoiUpdateComponent {
     }
 
     onSearchDestinataireClicked(): void {
-        /*this.isVisible = true;
-        this.displayDestinataires = true;*/
-
-        // const header = `Liste des destinataires liés au client: ${this.expediteurSelectionner.nom} ${this.expediteurSelectionner.prenom}`;
-        // const ref = this.dialogService.open(DestinataireComponent, {
-        //     header,
-        // });
-        //
-        // ref.onClose.subscribe((destinataire: Personne) => {
-        //     if (destinataire) {
-        //         this.destinataireSelectionner = destinataire;
-        //         this.envoiForm.get('destinataire').setValue(destinataire.prenom);
-        //     }
-        // });
+        this.isVisible = true;
+        this.displayDestinataires = true;
     }
 
     validerEnvoi(): void {

@@ -10,10 +10,13 @@
         <app-personne-detail></app-personne-detail>
     </ng-template>
     <ng-template [ngIf]="displayExpediteurs">
-        <app-personne-select></app-personne-select>
+        <app-personne-select [isExpediteur]="true" (onSelect)="onExpediteurSelect($event)"></app-personne-select>
     </ng-template>
     <ng-template [ngIf]="displayDestinataires">
-        <app-personne-select></app-personne-select>
+        <app-personne-select [isDestinataire]="true"
+                             [clientId]="expediteur.id"
+                             (onSelect)="onDestinataireSelect($event)">
+        </app-personne-select>
     </ng-template>
     <ng-template [ngIf]="displayPartenaires">
         <app-personne-select [isPartenaire]="true" (onSelect)="onPartenaireSelect($event)"></app-personne-select>
