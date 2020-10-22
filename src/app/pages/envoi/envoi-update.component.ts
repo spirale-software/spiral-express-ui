@@ -49,6 +49,8 @@ export class EnvoiUpdateComponent {
 
     expediteur: Client;
 
+    titreDialog = "Détail de l'envoi";
+
     constructor(public dialogService: DialogService, private router: Router, private fb: FormBuilder, private envoiService: EnvoiService) {
         this.breadcrumbItems = [];
         this.breadcrumbItems.push({label: 'envois de coli'});
@@ -67,17 +69,20 @@ export class EnvoiUpdateComponent {
     }
 
     onValiderClicked(): void {
+        this.isVisible = true;
         this.displayEnvoiDetail = true;
     }
 
     onSearchExpediteurClicked(): void {
         this.isVisible = true;
         this.displayExpediteurs = true;
+        this.titreDialog = 'Sélectionner un expéditeur.';
     }
 
     onSearchPartenaireClicked() {
         this.isVisible = true;
         this.displayPartenaires = true;
+        this.titreDialog = 'Sélectionner un partenaire.';
     }
 
     onPartenaireSelect(partenaire: Partenaire) {
@@ -118,6 +123,7 @@ export class EnvoiUpdateComponent {
     onSearchDestinataireClicked(): void {
         this.isVisible = true;
         this.displayDestinataires = true;
+        this.titreDialog = 'Sélectionner un destinataire.';
     }
 
     validerEnvoi(): void {

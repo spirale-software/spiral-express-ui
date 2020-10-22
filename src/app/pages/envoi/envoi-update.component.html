@@ -1,7 +1,7 @@
 <!--
 -->
 
-<p-dialog header="Détail de l'envoi" [(visible)]="isVisible" [modal]="true" [style]="{'width':'90%'}">
+<p-dialog [header]="titreDialog" [(visible)]="isVisible" [modal]="true" [style]="{'width':'90%'}">
 
     <ng-template [ngIf]="displayEnvoiDetail">
         <app-envoi-detail></app-envoi-detail>
@@ -133,8 +133,6 @@
                         <button type="button" pButton pRipple icon="pi pi-search" styleClass="p-button-danger"
                                 (click)="onSearchExpediteurClicked()">
                         </button>
-<!--                        <button type="button" pButton pRipple icon="pi pi-plus" style="background-color: green">-->
-<!--                        </button>-->
                         <button type="button" pButton pRipple icon="pi pi-eye" style="background-color: #00ffff"
                                 (click)="voirDetailExpediteur()">
                         </button>
@@ -148,8 +146,6 @@
                         <button type="button" pButton pRipple icon="pi pi-search" styleClass="p-button-danger"
                                 (click)="onSearchDestinataireClicked()">
                         </button>
-<!--                        <button type="button" pButton pRipple icon="pi pi-plus" style="background-color: green">-->
-<!--                        </button>-->
                         <button type="button" pButton pRipple icon="pi pi-eye" style="background-color: #00ffff"
                                 (click)="voirDetailDestinataire()">
                         </button>
