@@ -67,10 +67,15 @@
             <span>{{ adresseExpediteur }}</span>
         </div>
 
-        <div>
+        <div style="margin-bottom: 21px">
             <span class="nom-label">Destinataire</span>
             <span style="display: block">{{ fullNameDestinataire }}</span>
             <span>{{ adresseDestinataire }}</span>
+        </div>
+
+        <div>
+            <span class="nom-label">Montant à payer</span>
+            <span style="display: block">{{ envoi?.montant }} EUR</span>
         </div>
 
 

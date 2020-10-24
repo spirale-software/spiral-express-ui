@@ -9,6 +9,7 @@ import {EnvoiService} from './envoi.service';
 import {Personne} from '../shared/model/personne';
 import {Partenaire} from '../shared/model/partenaire';
 import {Destinataire} from '../shared/model/destinataire';
+import {StatutEnvoi} from "../shared/model/statut-envoi";
 
 @Component({
     selector: 'app-envoi',
@@ -61,7 +62,8 @@ export class EnvoiUpdateComponent {
 
         const myDate = new Date();
         this.currentDate = `${myDate.getDate()}/${myDate.getUTCMonth() + 1}/${myDate.getFullYear()}`;
-        this.envoi.dateCreation = myDate;
+        this.envoi.dateCreation = this.currentDate;
+        this.envoi.statut = StatutEnvoi.PRISE_EN_CHARGE;
 
         this.volume = 0;
         this.poidsVolumetrique = 0;
@@ -75,9 +77,10 @@ export class EnvoiUpdateComponent {
         this.isVisible = true;
         this.displayEnvoiDetail = true;
 
-        this.envoi = Object.assign({}, this.envoiForm.value);
+        this.envoi = Object.assign(this.envoi, this.envoiForm.value);
         this.envoi.destinataire = this.destinataire;
         this.envoi.expediteur = this.expediteur;
+        this.envoi.partenaire = this.partenaire;
         console.log('envoi: ', this.envoi);
     }
 
@@ -138,7 +141,7 @@ export class EnvoiUpdateComponent {
 
     validerEnvoi(): void {
         console.log(this.envoiForm.value);
-        this.envoi = Object.assign({}, this.envoiForm.value);
+        this.envoi = Object.assign(this.envoi, this.envoiForm.value);
         this.envoi.expediteur = this.expediteurSelectionner;
         this.envoi.destinataire = this.destinataireSelectionner;
         this.envoiService.create(this.envoi).subscribe(res => {
