@@ -1,5 +1,6 @@
 import {Personne} from "./personne";
 
 export interface Partenaire extends Personne {
-    matricule: number;
+    id ?: number;
+    matricule ?: number;
 }

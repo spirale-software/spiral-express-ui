@@ -35,10 +35,6 @@ export class EnvoiUpdateComponent {
 
     currentDate;
 
-    expediteurSelectionner: Client;
-
-    destinataireSelectionner: Personne;
-
     volume: number;
 
     poidsVolumetrique: number;
@@ -140,14 +136,13 @@ export class EnvoiUpdateComponent {
     }
 
     validerEnvoi(): void {
-        console.log(this.envoiForm.value);
-        this.envoi = Object.assign(this.envoi, this.envoiForm.value);
-        this.envoi.expediteur = this.expediteurSelectionner;
-        this.envoi.destinataire = this.destinataireSelectionner;
+        console.log(this.envoi);
+        this.closeDialog();
+        this.envoi.dateCreation = null;
         this.envoiService.create(this.envoi).subscribe(res => {
-            console.log(res);
+            this.navigateTo();
+            // console.log(res);
         });
-        this.displayEnvoiDetail = false;
     }
 
     navigateTo() {

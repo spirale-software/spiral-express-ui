@@ -1,9 +1,9 @@
 
 export enum StatutEnvoi {
-    PRISE_EN_CHARGE = 'Pris en charge',
-    EN_ATTENTE = 'En attente',
-    EN_LIVRAISON = 'En livraison',
-    ARRIVER_ET_SCANNER_AU_DEPOT = 'Arriver et scanner au dépôt',
-    A_ENLEVER = 'A enlever',
-    LIVRER = 'Livrer'
+    PRISE_EN_CHARGE,
+    EN_ATTENTE,
+    EN_LIVRAISON,
+    ARRIVER_ET_SCANNER_AU_DEPOT,
+    A_ENLEVER,
+    LIVRER
 }

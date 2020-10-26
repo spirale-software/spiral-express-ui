@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http';
 import {Observable, of} from 'rxjs';
 import {Envoi} from '../shared/model/envoi';
 import {Coli} from "../shared/model/coli";
@@ -18,13 +18,15 @@ export class EnvoiService {
     constructor(private http: HttpClient) {
     }
 
-    create(envoi: Envoi): Observable<Envoi> {
-        this.envois.push(envoi);
-        return of(envoi);
+    create(envoi: Envoi): Observable<HttpResponse<Envoi>> {
+        return this.http.post<Envoi>(this.url, envoi, {observe: 'response'});
+        // this.envois.push(envoi);
+        // return of(envoi);
     }
 
-    update(envoi: Envoi): Observable<Envoi> {
-        return null;
+    update(envoi: Envoi): Observable<HttpResponse<Envoi>> {
+        return this.http.put<Envoi>(this.url, envoi, {observe: 'response'});
+        // return null;
     }
 
     getById(envoiId: number): Observable<Envoi> {
@@ -36,8 +38,8 @@ export class EnvoiService {
     }
 
     getAll(): Observable<Envoi[]> {
-        // return  this.http.get<Envoi[]>(this.url);
-        return of(this.getEnvoi());
+        return  this.http.get<Envoi[]>(this.url);
+        // return of(this.getEnvoi());
     }
 
     genererDocument(envoiId: number): Observable<any> {
